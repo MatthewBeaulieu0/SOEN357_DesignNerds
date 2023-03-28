@@ -147,8 +147,15 @@ android {
         }
     }
 }
+plugins {
+  id 'com.android.application'
 
+
+  id 'com.google.gms.google-services'
+
+}
 dependencies {
+    implementation platform('com.google.firebase:firebase-bom:31.3.0')
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 

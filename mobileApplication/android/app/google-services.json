@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "476476828887",
+    "project_id": "soen-357-project-d1990",
+    "storage_bucket": "soen-357-project-d1990.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476476828887:android:32afa923abf0b8822c1492",
+        "android_client_info": {
+          "package_name": "com.mobileapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476476828887-h0dvhd2t2a338l38oruue1uk2ul9cm7t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCikPpOhdnt_qNvaKgEGg9cr9Dtr2BBXzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476476828887-feagkn7lli3isbnf9tcrp744in7g6vn2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
