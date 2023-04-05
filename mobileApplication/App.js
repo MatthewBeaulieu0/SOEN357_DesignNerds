@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {app, auth} from './firebaseConfig';
 import React,{useEffect} from 'react';
+import GreetingPage from './Pages/GreetingPage';
 
 export default function App() {
   useEffect(() => {
@@ -25,10 +26,7 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GreetingPage></GreetingPage>
   );
 }
 
