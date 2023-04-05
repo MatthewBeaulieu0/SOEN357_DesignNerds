@@ -6,9 +6,10 @@ import React,{useEffect} from 'react';
 export default function App() {
   useEffect(() => {
     console.log(app);
+    console.log(auth)
 
     // Log connection status
-    const unsubscribe = auth.onAuthStateChanged((user) => {
+    const unsubscribe = auth().onAuthStateChanged(user => {
       console.log("hello "+user)
       if (user) {
         console.log('Firebase connection established.');
