@@ -4,6 +4,9 @@ import image from '../static/images/LoginLogo.png';
 import EasyLoginComponent from '../Components/EasyLoginComponent';
 
 
+
+
+
 function FirstLoginPage(){
     const handleTurquoiseButtonClick = () => {
         console.log('button clicked');
@@ -18,6 +21,12 @@ function FirstLoginPage(){
               resizeMode="contain"
             />
           </View>
+
+
+
+
+
+
           <EasyLoginComponent />
           <TouchableOpacity style={styles.turquoiseButton} onPress={handleTurquoiseButtonClick}>
             <Text style={styles.turquoiseButtonText}>Just a few steps away</Text>

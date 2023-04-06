@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import {app, auth} from './firebaseConfig';
 import React,{useEffect} from 'react';
 import GreetingPage from './Pages/GreetingPage';
+import FirstLoginPage from './Pages/FirstLoginPage'
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -39,6 +40,7 @@ screenOptions={{
   headerShown: false
 }}>
   <Stack.Screen name="Home" component={GreetingPage} />
+  <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
 </Stack.Navigator>
 </NavigationContainer>
 
