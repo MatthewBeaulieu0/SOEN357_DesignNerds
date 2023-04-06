@@ -2,12 +2,14 @@ import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import image from '../static/images/GreetingLogo.png';
 
-
-
-function GreetingPage() {
+function GreetingPage({ navigation }) {
   const handleButtonClick = () => {
     // handle button click
     console.log('Button clicked!');
+
+    // use react navigation router to go to the first login page
+    navigation.navigate('FirstLoginPage')
+
   };
 
   return (
