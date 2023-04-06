@@ -40,8 +40,7 @@ function EasyLoginComponent(){
             <Ionicons name="logo-windows" size={30}></Ionicons>
             <Text style={styles.text}>Sign in with Microsoft</Text>
             </HStack>
-          </TouchableOpacity>
-          
+          </TouchableOpacity>   
           <TouchableOpacity style={[styles.button, styles.blueButton]} onPress={handleFacebookSignIn}>
             <HStack spacing={10}>
             <Ionicons name="logo-facebook" size={30}></Ionicons>
@@ -52,9 +51,7 @@ function EasyLoginComponent(){
             <HStack spacing={10}>
             <Ionicons name="logo-apple" size={30} color="white"></Ionicons>
             <Text style={styles.text_apple}>Sign in with Apple</Text>
-
             </HStack>
-            
           </TouchableOpacity>
         </View>
       );
@@ -64,12 +61,10 @@ function EasyLoginComponent(){
         container: {
           flex: 1,
           justifyContent: 'center',
-          width: '80%',
+          width: '100%',
           alignItems: 'center',
-          backgroundColor: '#585858', // set the background color to light gray
+          backgroundColor: '#D0D0D0', // set the background color to light gray
           borderRadius: 10, // add rounded corners to the container
-          
-          
         },
         button: {
           backgroundColor: '#fff',
@@ -77,6 +72,7 @@ function EasyLoginComponent(){
           paddingVertical: 10,
           borderRadius: 10,
           width: '70%',
+
           marginBottom: 10,
         },
         blueButton: {
