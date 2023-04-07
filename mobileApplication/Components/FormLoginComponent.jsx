@@ -63,20 +63,21 @@ const FormLoginComponent = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#E8E8E8',
     padding: 20,
     borderRadius: 10,
+    width: '80%',
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 30,
   },
   input: {
     flex: 1,
     height: 40,
     borderWidth: 1,
-    borderColor: '#E5E5E5',
+    borderColor: '#696969',
     borderRadius: 5,
     paddingHorizontal: 10,
   },
