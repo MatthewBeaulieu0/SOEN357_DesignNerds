@@ -65,13 +65,15 @@ function EasyLoginComponent(){
           alignItems: 'center',
           backgroundColor: '#D0D0D0', // set the background color to light gray
           borderRadius: 10, // add rounded corners to the container
+          
         },
         button: {
           backgroundColor: '#fff',
           paddingHorizontal: 20,
           paddingVertical: 10,
           borderRadius: 10,
-          width: '70%',
+          width: '80%',
+          marginTop:5,
 
           marginBottom: 10,
         },

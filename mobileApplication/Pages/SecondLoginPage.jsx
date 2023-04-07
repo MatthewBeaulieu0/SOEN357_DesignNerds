@@ -50,6 +50,7 @@ export default function SecondLoginPage({ navigation }) {
           justifyContent: "center",
           alignItems: "center",
           backgroundColor: "#f2f2f2",
+          marginTop:80
         },
         logoContainer: {
           justifyContent: "center",

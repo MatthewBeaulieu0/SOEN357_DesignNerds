@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#f2f2f2",
+    marginTop:80,
   },
   logoContainer: {
     justifyContent: "center",
@@ -75,7 +76,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     marginTop: 10,
-    height: "38%",
+    height: "43%",
     width: "80%",
     justifyContent: "center",
     alignItems: "center",
