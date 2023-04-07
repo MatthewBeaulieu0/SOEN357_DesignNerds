@@ -3,9 +3,12 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import image from "../static/images/LoginLogo.png";
 import EasyLoginComponent from "../Components/EasyLoginComponent";
 
-function FirstLoginPage() {
+function FirstLoginPage({ navigation }) {
   const handleTurquoiseButtonClick = () => {
     console.log("button clicked");
+
+    navigation.navigate('SecondLoginPage')
+
     // handle turquoise button click logic here
   };
   return (

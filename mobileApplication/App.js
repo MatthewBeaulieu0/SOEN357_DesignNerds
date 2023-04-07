@@ -6,6 +6,7 @@ import GreetingPage from './Pages/GreetingPage';
 import FirstLoginPage from './Pages/FirstLoginPage'
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SecondLoginPage from './Pages/SecondLoginPage';
 
 
 const Stack = createNativeStackNavigator();
@@ -41,6 +42,8 @@ screenOptions={{
 }}>
   <Stack.Screen name="Home" component={GreetingPage} />
   <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
+  <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
+  
 </Stack.Navigator>
 </NavigationContainer>
 
