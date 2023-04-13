@@ -4,6 +4,7 @@ import image from "../static/images/LoginLogo.png";
 import EasyLoginComponent from "../Components/EasyLoginComponent";
 import FormLoginComponent from "../Components/FormLoginComponent";
 import Header from "../Components/header";
+
 async function loadFonts() {
     await Font.loadAsync({
         "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
@@ -23,11 +24,19 @@ export default function HomePage({ route }) {
     return (
         <View>
             <Header firstName={firstName} />
-            <Text>Welcome, {firstName}!</Text>
+            <Image
+                source={require("../assets/homeImage.png")}
+                style={styles.logo}
+            />
+            <View style={styles.textBox}>
+                <Text style={styles.text}>
+                    You don't have any pets! Add your first pet by pressing the
+                    + button
+                </Text>
+            </View>
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -78,10 +87,8 @@ const styles = StyleSheet.create({
     },
     pageDots: {
         flexDirection: "row",
-
         marginTop: 20,
     },
-
     dot: {
         width: 10,
         height: 10,
@@ -91,5 +98,31 @@ const styles = StyleSheet.create({
     },
     activeDot: {
         backgroundColor: "turquoise",
+    },
+    textBox: {
+        position: "absolute",
+        width: 293,
+        height: 72,
+        left: 60,
+        top: 472,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    text: {
+        fontFamily: "Montserrat",
+        fontStyle: "normal",
+        fontWeight: "500",
+        fontSize: 20,
+        lineHeight: 24,
+        textAlign: "center",
+    },
+    logo: {
+        position: "absolute",
+        width: 305,
+        height: 301,
+        left: "50%",
+        marginLeft: -152.5,
+        top: 173,
+        resizeMode: "contain",
     },
 });
