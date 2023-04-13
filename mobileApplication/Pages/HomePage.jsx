@@ -1,40 +1,29 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import image from "../static/images/LoginLogo.png";
 import EasyLoginComponent from "../Components/EasyLoginComponent";
 import FormLoginComponent from "../Components/FormLoginComponent";
-
-export default function SecondLoginPage({ navigation }) {
-    const [firstName, setFirstName] = useState("");
+import Header from "../Components/header";
+async function loadFonts() {
+    await Font.loadAsync({
+        "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
+    });
+}
+export default function HomePage({ route }) {
+    async function loadFonts() {
+        await Font.loadAsync({
+            "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
+        });
+    }
+    const { firstName } = route.params;
     const handleTurquoiseButtonClick = () => {
         console.log("second login page button clicked");
-        console.log(firstName);
-        navigation.navigate("HomePage", { firstName: firstName });
-
-        // handle turquoise button click logic here
     };
-    const handleFirstNameChange = (text) => {
-        setFirstName(text);
-    };
+    loadFonts();
     return (
-        <View style={styles.container}>
-            <View style={styles.logoContainer}>
-                <Image source={image} style={styles.logo} />
-            </View>
-            <View style={styles.buttonContainer}>
-                <FormLoginComponent onFirstNameChange={handleFirstNameChange} />
-            </View>
-            <TouchableOpacity
-                style={styles.turquoiseButton}
-                onPress={handleTurquoiseButtonClick}
-            >
-                <Text style={styles.turquoiseButtonText}>Get Started</Text>
-            </TouchableOpacity>
-            <View style={styles.pageDots}>
-                <View style={[styles.dot]} />
-                <View style={[styles.dot]} />
-                <View style={[styles.dot, styles.activeDot]} />
-            </View>
+        <View>
+            <Header firstName={firstName} />
+            <Text>Welcome, {firstName}!</Text>
         </View>
     );
 }
