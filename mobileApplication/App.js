@@ -43,6 +43,8 @@ screenOptions={{
   <Stack.Screen name="Home" component={GreetingPage} />
   <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
   <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
+  <Stack.Screen name="HomeWithPetsPage" component={HomeWithPets}/>
+  <Stack.Screen name="PersonalConversationPage" component={PersonalConversationPage} />
   
 </Stack.Navigator>
 </NavigationContainer>
