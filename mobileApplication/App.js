@@ -7,6 +7,8 @@ import FirstLoginPage from './Pages/FirstLoginPage'
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SecondLoginPage from './Pages/SecondLoginPage';
+import HomeWithPetsPage from './Pages/HomeWithPetsPage';
+import PersonalConversationPage from './Pages/PersonalConversationPage';
 
 
 const Stack = createNativeStackNavigator();
@@ -43,7 +45,7 @@ screenOptions={{
   <Stack.Screen name="Home" component={GreetingPage} />
   <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
   <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
-  <Stack.Screen name="HomeWithPetsPage" component={HomeWithPets}/>
+  <Stack.Screen name="HomeWithPetsPage" component={HomeWithPetsPage}/>
   <Stack.Screen name="PersonalConversationPage" component={PersonalConversationPage} />
   
 </Stack.Navigator>

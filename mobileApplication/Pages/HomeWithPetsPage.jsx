@@ -19,56 +19,73 @@ function PetCard({ name, age, breed, imageSource, onPress }) {
 
 function HomeWithPetsPage({ navigation }) {
   const handlePetComponentClick = () => {
+
+    //pet description page name here
     navigation.navigate('PetsDescription');
   };
 
   return (
-    <>
-      <PetCard
-        name="Piki"
-        age="4"
-        breed="Mixed"
-        imageSource={require('../static/images/PetImage1.png')}
-        onPress={handlePetComponentClick}
-      />
-      <PetCard
-        name="Peanut"
-        age="2"
-        breed="Toy Poodle"
-        imageSource={require('../static/images/PetImage2.png')}
-        onPress={handlePetComponentClick}
-      />
-    </>
+    <View style={styles.pageContainer}>
+        <Text style={styles.title}>My Pets</Text>
+    <PetCard
+      name="Piki"
+      age="4"
+      breed="Mixed"
+      imageSource={require('../static/images/PetImage1.png')}
+      onPress={handlePetComponentClick}
+    />
+    <PetCard
+      name="Peanut"
+      age="2"
+      breed="Toy Poodle"
+      imageSource={require('../static/images/PetImage2.png')}
+      onPress={handlePetComponentClick}
+    />
+  </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    backgroundColor: '#ccc',
-    padding: 10,
-    alignItems: 'center',
-    borderRadius: 5,
-  },
-  image: {
-    width: 50,
-    height: 50,
-    marginRight: 10,
-    borderRadius: 25,
-  },
-  textContainer: {
-    flex: 1,
-  },
-  nameText: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  ageText: {
-    fontSize: 16,
-  },
-  breedText: {
-    fontSize: 16,
-  },
-});
+    container: {
+      flexDirection: 'row',
+      backgroundColor: '#ccc',
+      padding: 30,
+      alignItems: 'center',
+      borderRadius: 5,
+      marginBottom: 70, // add margin bottom to create space between components
+    },
+    pageContainer:{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    image: {
+      width: 80, // increase the width of the image
+      height: 80, // increase the height of the image
+      marginRight: 10,
+      borderRadius: 35, // adjust border radius to match the new size
+    },
+    textContainer: {
+      flex: 1,
+    },
+    nameText: {
+      fontSize: 25, // increase font size
+      fontWeight: 'bold',
+    },
+    ageText: {
+      fontSize: 20, // increase font size
+      marginBottom: 5, // add margin bottom to create space between texts
+    },
+    breedText: {
+      fontSize: 20, // increase font size
+    },
+    title: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 40,
+        textAlign: 'center',
+      },
+  });
+  
 
 export default HomeWithPetsPage;
