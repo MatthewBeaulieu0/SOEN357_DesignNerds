@@ -52,7 +52,9 @@ const styles = StyleSheet.create({
       padding: 30,
       alignItems: 'center',
       borderRadius: 5,
-      marginBottom: 70, // add margin bottom to create space between components
+      marginBottom: 60, // add margin bottom to create space between components
+      marginLeft: 15,
+      marginRight: 15,
     },
     pageContainer:{
         flex: 1,
@@ -60,8 +62,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     image: {
-      width: 80, // increase the width of the image
-      height: 80, // increase the height of the image
+      width: 85, // increase the width of the image
+      height: 85, // increase the height of the image
       marginRight: 10,
       borderRadius: 35, // adjust border radius to match the new size
     },
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
         fontWeight: 'bold',
-        marginBottom: 40,
+        marginBottom: 50,
         textAlign: 'center',
       },
   });
