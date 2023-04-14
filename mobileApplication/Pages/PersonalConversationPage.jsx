@@ -11,7 +11,7 @@ function PersonalConversationPage({navigation}) {
   const navigateToConversations = () => {
 
     // name of conversation page here
-    navigation.navigate('Conversations');
+    navigation.navigate('ConversationsPage');
   };
 
   return (

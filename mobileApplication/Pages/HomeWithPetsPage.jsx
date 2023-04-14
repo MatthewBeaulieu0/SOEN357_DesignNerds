@@ -21,7 +21,7 @@ function HomeWithPetsPage({ navigation }) {
   const handlePetComponentClick = () => {
 
     //pet description page name here
-    navigation.navigate('PetsDescription');
+    navigation.navigate('PetsDescriptionPage');
   };
 
   return (
