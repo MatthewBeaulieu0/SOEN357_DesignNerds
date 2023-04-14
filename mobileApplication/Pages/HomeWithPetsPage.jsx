@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import image from '../static/images/PetImage1.png';
+import Header from "../Components/header";
 
 // missing header and footer!!!!!!
 
@@ -17,7 +18,12 @@ function PetCard({ name, age, breed, imageSource, onPress }) {
   );
 };
 
-function HomeWithPetsPage({ navigation }) {
+
+function HomeWithPetsPage({ navigation, route }) {
+
+  //unsure about this line?  const { firstName } = route.params; didnt work for me
+  const firstName = route && route.params && route.params.firstName;
+
   const handlePetComponentClick = () => {
 
     //pet description page name here
@@ -26,6 +32,7 @@ function HomeWithPetsPage({ navigation }) {
 
   return (
     <View style={styles.pageContainer}>
+      <Header firstName={firstName} />
         <Text style={styles.title}>My Pets</Text>
     <PetCard
       name="Piki"
@@ -58,8 +65,8 @@ const styles = StyleSheet.create({
     },
     pageContainer:{
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
     },
     image: {
       width: 85, // increase the width of the image
@@ -84,7 +91,8 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 32,
         fontWeight: 'bold',
-        marginBottom: 50,
+        marginBottom: 30,
+        marginTop: 30,
         textAlign: 'center',
       },
   });
