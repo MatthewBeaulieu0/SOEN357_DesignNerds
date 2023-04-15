@@ -16,6 +16,7 @@ export default function App() {
     async function loadFonts() {
         await Font.loadAsync({
             "Montserrat-Regular": require("../mobileApplication/assets/fonts/Montserrat-Regular.ttf"),
+            "gothic-a1-regular": require("../mobileApplication/assets/fonts/GothicA1-Regular.ttf"),
         });
         console.log("Loaded");
     }

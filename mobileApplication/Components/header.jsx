@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         alignItems: "center",
         paddingHorizontal: 20,
-        height: 80,
+        height: 90,
         backgroundColor: "#fff",
         borderBottomColor: "#ccc",
         borderBottomWidth: 1,
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         fontFamily: "Montserrat-Regular",
         marginTop: 25,
-        marginLeft: 15,
+        marginLeft: 20,
     },
     headerLogo: {
         width: 50,
