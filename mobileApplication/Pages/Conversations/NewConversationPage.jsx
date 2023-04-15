@@ -16,7 +16,6 @@ function NewConversationPage({navigation}) {
   return (
     <SafeAreaView style={{backgroundColor: "white"}}>
       <KeyboardAvoidingView style={styles.container}>
-        <VStack justifyContent="space-between">
           <View style={styles.header}>
             <TouchableOpacity style={styles.headerIconContainer} onPress={() => {
               navigation.navigate('ConversationsPage');
@@ -28,7 +27,7 @@ function NewConversationPage({navigation}) {
               <Ionicons name="search-outline" size={20}/>
             </TouchableOpacity>
           </View>
-          <View style={styles.header}>
+{/*          <View style={styles.header}>
             <TouchableOpacity style={styles.headerIconContainer} onPress={() => {
               navigation.navigate('ConversationsPage');
             }}>
@@ -38,8 +37,7 @@ function NewConversationPage({navigation}) {
             <TouchableOpacity style={styles.headerIconContainer} disabled={true}>
               <Ionicons name="send-outline" size={25}/>
             </TouchableOpacity>
-          </View>
-        </VStack>
+          </View>*/}
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -49,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     backgroundColor: '#F6F6F6',
+    flexDirection:"column",
     justifyContent: 'space-between',
   },
   header: {
@@ -77,30 +76,10 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
     borderWidth: 2,
-    borderRadius:20,
-    paddingHorizontal:15,
-    backgroundColor:'#fcfcfc',
+    borderRadius: 20,
+    paddingHorizontal: 15,
+    backgroundColor: '#fcfcfc',
     borderColor: '#9d9d9d',
-  },
-  input: {
-    fontSize: 16,
-    backgroundColor: 'white',
-    height: 40,
-    width: '75%',
-    borderWidth: 2,
-    borderColor: '#696969',
-    borderRadius: 30,
-    paddingHorizontal: 10
-  },
-  typingField: {
-    width: '100%',
-    alignItems: 'center',
-    backgroundColor: '#FFFFFF',
-    padding: 15,
-    borderBottomColor: '#E5E5E5',
-  },
-  bottomButtons: {
-    justifyContent: 'center'
   }
 });
 
