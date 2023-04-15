@@ -1,9 +1,7 @@
 import React from "react";
-import {SectionList, StyleSheet, Text, TextInput, View} from "react-native";
-// import {useNavigation} from "@react-navigation/native";
-// const navigation = useNavigation();
+import {SectionList, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 
-const ForumTopics = () => {
+const ForumTopics = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Forum Topics</Text>
@@ -37,16 +35,19 @@ const ForumTopics = () => {
           {title: "Y", data: ["Yellow Fever"]},
           {title: "Z", data: ["Zika virus", "Zoonoses"]},
         ]}
-        renderItem={({item}) => <Text style={styles.item}>{item}</Text>}
+        renderItem={({item}) => {
+          if (item === 'Covid-19') {
+            return (
+              <TouchableOpacity onPress={() => navigation.navigate("Forum")}>
+                <Text style={styles.item}>{item}</Text>
+              </TouchableOpacity>
+            )
+          } else {
+            return (<Text style={styles.item}>{item}</Text>)
+          }
+        }}
         renderSectionHeader={({section}) => (
-          // TODO: add navigation on click
-          // <TouchableOpacity
-          //   onPress={() =>
-          //     navigation.navigate('Forum', { forumTopic: section.title })
-          //   }
-          // >
           <Text style={styles.sectionHeader}>{section.title}</Text>
-          // </TouchableOpacity>
         )}
         keyExtractor={(item) => `basicListEntry-${item}`}
       />
