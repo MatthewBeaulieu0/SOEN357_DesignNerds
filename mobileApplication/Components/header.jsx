@@ -4,19 +4,17 @@ import * as Font from "expo-font";
 
 const Header = ({ firstName }) => {
     return (
-        <View style={styles.container}>
-            <Text style={[styles.text, { marginTop: 10 }]}>
-                Hello, {firstName}
-            </Text>
+        <View style={styles.header}>
+            <Text style={styles.headerText}>Hello, {firstName}</Text>
             <Image
                 source={require("../assets/logoHeader.png")}
-                style={styles.logo}
+                style={styles.headerLogo}
             />
         </View>
     );
 };
 const styles = StyleSheet.create({
-    container: {
+    header: {
         flexDirection: "row",
         justifyContent: "space-between",
         alignItems: "center",
@@ -28,12 +26,14 @@ const styles = StyleSheet.create({
         width: "100%",
         top: 0,
     },
-    text: {
-        fontSize: 18,
+    headerText: {
+        fontSize: 24,
         lineHeight: 24,
         fontFamily: "Montserrat-Regular",
+        marginTop: 25,
+        marginLeft: 15,
     },
-    logo: {
+    headerLogo: {
         width: 50,
         height: 50,
         resizeMode: "contain",
