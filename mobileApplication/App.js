@@ -1,5 +1,4 @@
-import {StatusBar} from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {app, auth} from './firebaseConfig';
 import React, {useEffect} from 'react';
 import GreetingPage from './Pages/GreetingPage';
@@ -9,6 +8,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import SecondLoginPage from './Pages/SecondLoginPage';
 import Forum from './Pages/Forums/Forum';
 import ForumTopics from './Pages/Forums/ForumTopics';
+import ConversationsPage from "./Pages/Conversations/ConversationsPage";
+import PersonalConversationsPage from "./Pages/Conversations/PersonalConversationsPage";
+import NewConversationPage from "./Pages/Conversations/NewConversationPage";
 
 const Stack = createNativeStackNavigator();
 
@@ -39,12 +41,15 @@ export default function App() {
         screenOptions={{
           headerShown: false
         }}>
-        <Stack.Screen name="Home" component={ForumTopics}/>
+        <Stack.Screen name="Home" component={ConversationsPage}/>
         {/*<Stack.Screen name="Home" component={GreetingPage} />*/}
         <Stack.Screen name="FirstLoginPage" component={FirstLoginPage}/>
         <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
         <Stack.Screen name="ForumTopics" component={ForumTopics}/>
         <Stack.Screen name="Forum" component={Forum}/>
+        <Stack.Screen name="ConversationsPage" component={ConversationsPage}/>
+        <Stack.Screen name="PersonalConversationsPage" component={PersonalConversationsPage}/>
+        <Stack.Screen name="NewConversationPage" component={NewConversationPage}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
