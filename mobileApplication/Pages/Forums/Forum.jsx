@@ -9,7 +9,7 @@ import {
   KeyboardAvoidingView,
   Platform, Image
 } from "react-native";
-import {Stack} from "react-native-flex-layout";
+import {HStack, Stack} from "react-native-flex-layout";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {Avatar} from 'react-native-elements';
 
@@ -26,7 +26,7 @@ function Forum({navigation}) {
   }
 
   const handleCreatePost = () => {
-  //  TODO: add post logic later
+    //  TODO: add post logic later
   }
 
   return (
@@ -34,48 +34,64 @@ function Forum({navigation}) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.container}
     >
+      <TouchableOpacity style={styles.backArrow} onPress={() => {
+        navigation.navigate('ForumTopics');
+      }}>
+        <HStack style={{alignItems: "center"}}>
+          <Ionicons name="chevron-back-outline" size={25}/>
+          <Text style={{fontSize: 18}}>Back</Text>
+        </HStack>
+      </TouchableOpacity>
       <Text style={styles.title}>Covid-19</Text>
       <ScrollView>
         <View style={styles.discussionContainer}>
           <View style={styles.postContainer}>
-            <Stack direction="row" spacing={15}>
+            <HStack spacing={10} style={styles.usernameHeader}>
               <Avatar
                 rounded
-                source={{
-                  uri: 'https://cdn-icons-png.flaticon.com/512/2309/2309736.png',
-                }}/>
+                title={'RM'}
+                size={25}
+                minWidth={27}
+                minHeight={27}
+                overlayContainerStyle={{backgroundColor: '#c5c5c5'}}
+              />
               <Text style={styles.subtitle}>Roland Maxwell</Text>
-            </Stack>
+            </HStack>
             <Text style={styles.post}>I'm concerned about my pets getting COVID-19. Can dogs and cats get infected with
               the virus?</Text>
             <Text style={styles.postDatetime}>3 hrs ago</Text>
           </View>
-          <Stack direction={'row'} spacing={10}>
+          <HStack spacing={10}>
             <TouchableOpacity onPress={handleOpenCommentInput}>
-              <View style={styles.replyBtn}>
-                <Ionicons name="arrow-redo-outline" size={25}/>
-              </View>
+              <Ionicons name="arrow-redo-outline" size={25}/>
             </TouchableOpacity>
             <View style={styles.replyContainer}>
-              <Stack direction="row" spacing={15}>
+              <Stack direction="row" spacing={10} style={styles.usernameHeader}>
                 <Avatar
                   rounded
+                  size={25}
+                  minWidth={27}
+                  minHeight={27}
                   source={require('../../static/images/vet-avatar-female.png')}
                 />
                 <Text style={styles.subtitle}><Text style={styles.vetLabel}>M.D.</Text> Amelie Tremblay</Text>
               </Stack>
               <Text>{`Hi there! \nYes, dogs and cats can be infected with COVID-19, although it's relatively uncommon. Most cases have been in pets that have had close contact with a person who has COVID-19.`}</Text>
-            </View></Stack>
+            </View>
+          </HStack>
         </View>
 
         <View style={styles.discussionContainer}>
           <View style={styles.postContainer}>
-            <Stack direction="row" spacing={15}>
+            <Stack direction="row" spacing={15} style={styles.usernameHeader}>
               <Avatar
                 rounded
-                source={{
-                  uri: 'https://cdn-icons-png.flaticon.com/512/2309/2309736.png',
-                }}/>
+                title={'JM'}
+                size={25}
+                minWidth={27}
+                minHeight={27}
+                overlayContainerStyle={{backgroundColor: '#c5c5c5'}}
+              />
               <Text style={styles.subtitle}>Jen Marlow</Text>
             </Stack>
             <Text style={styles.post}>How can I protect my pets from COVID-19?</Text>
@@ -89,10 +105,14 @@ function Forum({navigation}) {
               </View>
             </TouchableOpacity>
             <View style={styles.replyContainer}>
-              <Stack direction="row" spacing={10}>
+              <Stack direction="row" spacing={10} style={styles.usernameHeader}>
                 <Avatar
                   rounded
-                  source={require('../../static/images/vet-avatar-female.png')}
+                  title={'AZ'}
+                  size={25}
+                  minWidth={27}
+                  minHeight={27}
+                  overlayContainerStyle={{backgroundColor: '#c5c5c5'}}
                 />
                 <Text style={styles.subtitle}><Text style={styles.vetLabel}>M.D.</Text> Ali Zaman</Text>
               </Stack>
@@ -105,21 +125,26 @@ function Forum({navigation}) {
             </View>
           </Stack>
           <View style={styles.replyContainerExternal}>
-            <Stack direction="row" spacing={10}>
+            <Stack direction="row" spacing={10} style={styles.usernameHeader}>
               <Avatar
                 rounded
+                title={'AZ'}
+                size={25}
+                minWidth={27}
+                minHeight={27}
                 source={require('../../static/images/Cricket.jpg')}
               />
               <Text style={styles.subtitle}>Jiminy Rickets</Text>
             </Stack>
-            <Text><Text style={styles.vetLabel}>@Jen Marlow</Text> dw I just grounded my lizard for going to a Covid super-spreader event</Text>
+            <Text><Text style={styles.vetLabel}>@Jen Marlow</Text> dw I just grounded my lizard for going to a Covid
+              super-spreader event</Text>
           </View>
         </View>
       </ScrollView>
       <View style={styles.commentTextField}>
         <Stack direction="row" spacing={15}>
-          <TextInput style={styles.input} placeholder={openCommentInput? "Write a comment...":"Write something..."}/>
-          <TouchableOpacity style={styles.sendBtn} onPress={openCommentInput? handlePostComment:handleCreatePost}>
+          <TextInput style={styles.input} placeholder={openCommentInput ? "Write a comment..." : "Write something..."}/>
+          <TouchableOpacity style={styles.sendBtn} onPress={openCommentInput ? handlePostComment : handleCreatePost}>
             <Ionicons name="send-outline" size={30}/>
           </TouchableOpacity>
         </Stack>
@@ -150,9 +175,14 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     borderRadius: 10,
     aspectRatio: 1, // set the aspect ratio of your logo
-  }, text: {
+  },
+  text: {
     color: '#000',
     fontWeight: 'bold',
+  },
+  backArrow: {
+    alignSelf: 'right',
+    paddingHorizontal: 20
   },
   title: {
     fontSize: 32,
@@ -162,7 +192,7 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 14,
-    marginBottom: 10,
+    marginTop: 5,
     fontWeight: "bold"
   },
   vetLabel: {
@@ -220,8 +250,11 @@ const styles = StyleSheet.create({
     alignContent: "center"
   },
   postDatetime: {
-    paddingTop:5,
+    paddingTop: 5,
     textAlign: "right"
+  },
+  usernameHeader:{
+    marginBottom: 10
   },
   replyContainer: {
     padding: 15,
