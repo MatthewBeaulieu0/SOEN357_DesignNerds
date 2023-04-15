@@ -74,11 +74,13 @@ const styles = StyleSheet.create({
     marginBottom: 30,
   },
   input: {
+    fontSize:16,
     flex: 1,
     height: 40,
-    borderWidth: 1,
-    borderColor: '#696969',
-    borderRadius: 5,
+    borderWidth: 2,
+    borderColor: 'rgba(86,86,86,0.64)',
+    backgroundColor:'white',
+    borderRadius: 10,
     paddingHorizontal: 10,
   },
   ageContainer: {
