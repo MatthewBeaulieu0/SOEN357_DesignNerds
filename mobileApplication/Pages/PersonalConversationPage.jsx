@@ -20,7 +20,7 @@ function PersonalConversationPage({navigation}) {
         <TouchableOpacity style={styles.headerIconContainer} onPress={navigateToConversations}>
           <Image source={backIcon} style={styles.headerIcon} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Dr. Demola Andreas</Text>
+        <Text style={styles.headerTitle}>M.D. Demola Andreas</Text>
         <TouchableOpacity style={styles.headerIconContainer}>
           <Image source={searchIcon} style={styles.headerIcon} />
         </TouchableOpacity>
