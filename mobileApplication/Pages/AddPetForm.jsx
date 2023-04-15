@@ -5,7 +5,7 @@ import EasyLoginComponent from "../Components/EasyLoginComponent";
 import FormLoginComponent from "../Components/FormLoginComponent";
 import Header from "../Components/header";
 
-export default function HomePage({ route, navigation }) {
+export default function AddPetForm({ route, navigation }) {
     const { firstName } = route.params;
 
     const handleAddPetClick = () => {

@@ -8,6 +8,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SecondLoginPage from "./Pages/SecondLoginPage";
 import HomePage from "./Pages/HomePage";
+import AddPetForm from "./Pages/AddPetForm";
 import * as Font from "expo-font";
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,7 @@ export default function App() {
                     component={SecondLoginPage}
                 />
                 <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="AddPetForm" component={AddPetForm} />
             </Stack.Navigator>
         </NavigationContainer>
     );
