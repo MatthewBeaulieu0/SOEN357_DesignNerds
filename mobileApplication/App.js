@@ -7,7 +7,8 @@ import FirstLoginPage from './Pages/FirstLoginPage'
 import { NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SecondLoginPage from './Pages/SecondLoginPage';
-
+import Forum from './Pages/Forums/Forum';
+import ForumTopics from './Pages/Forums/ForumTopics';
 
 const Stack = createNativeStackNavigator();
 
@@ -40,10 +41,12 @@ export default function App() {
 screenOptions={{
   headerShown: false
 }}>
-  <Stack.Screen name="Home" component={GreetingPage} />
+  <Stack.Screen name="Home" component={ForumTopics} />
+  {/*<Stack.Screen name="Home" component={GreetingPage} />*/}
   <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
   <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
-  
+  <Stack.Screen name="ForumTopics" component={ForumTopics}/>
+  <Stack.Screen name="Forum" component={Forum}/>
 </Stack.Navigator>
 </NavigationContainer>
 

@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8c4270d-7812-46f7-894a-207f6c0a9859" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/mobileApplication/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mobileApplication/android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobileApplication/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobileApplication/Pages/SecondLoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/Pages/SecondLoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobileApplication/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobileApplication/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/mobileApplication/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,19 +23,22 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2NezgwoTw399Pr9ovUYXVRAQ1ox" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "E:/Concordia/SOEN357_DesignNerds"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Concordia/SOEN357_DesignNerds&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,5 +49,16 @@
       <updated>1680039460259</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -35,12 +35,6 @@ export default function SecondLoginPage({ navigation }) {
           <View style={[styles.dot,styles.activeDot]}/>
         </View>
       </View>
-
-        
-
-
-
-         
     )
 }
 
