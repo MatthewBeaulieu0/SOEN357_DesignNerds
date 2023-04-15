@@ -1,125 +1,104 @@
-import React from "react";
-import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
-import image from "../static/images/LoginLogo.png";
-import EasyLoginComponent from "../Components/EasyLoginComponent";
-import FormLoginComponent from "../Components/FormLoginComponent";
+import React, { useState } from "react";
+import {
+    View,
+    Text,
+    TextInput,
+    StyleSheet,
+    TouchableOpacity,
+} from "react-native";
 import Header from "../Components/header";
-
+import AddApetComponent from "../Components/AddAPetComponent";
 export default function AddPetForm({ route, navigation }) {
     const { firstName } = route.params;
+    const [petName, setPetName] = useState("");
+    const [breed, setBreed] = useState("");
+    const [birthMonth, setBirthMonth] = useState("");
+    const [birthYear, setBirthYear] = useState("");
+    const [weight, setWeight] = useState("");
+    const [vaccineAdministered, setVaccineAdministered] = useState("");
+    const [vaccinationDate, setVaccinationDate] = useState("");
 
-    const handleAddPetClick = () => {
-        navigation.navigate("AddPetForm");
+    const handleAddPet = () => {
+        console.log(
+            `Pet Name: ${petName}, Breed: ${breed}, Birth Month: ${birthMonth}, Birth Year: ${birthYear}, Weight: ${weight}, Vaccine Administered: ${vaccineAdministered}, Vaccination Date: ${vaccinationDate}`
+        );
     };
 
     return (
         <View>
             <Header firstName={firstName} />
-            <Image
-                source={require("../assets/homeImage.png")}
-                style={styles.logo}
-            />
-            <View style={styles.textBox}>
-                <Text style={styles.text}>
-                    You don't have any pets! Add your first pet by pressing the
-                    + button
+            <View style={styles.addAPet}>
+                <Text
+                    style={[
+                        styles.title,
+                        {
+                            fontFamily: "Montserrat-Regular",
+                            fontSize: 32,
+                            fontWeight: "400",
+                            lineHeight: 39,
+                            letterSpacing: 0,
+                            textAlign: "center",
+                        },
+                    ]}
+                >
+                    Add A Pet
                 </Text>
             </View>
-            <TouchableOpacity
-                style={styles.addButton}
-                onPress={handleAddPetClick}
-            >
-                <Text style={styles.buttonText}>+</Text>
-            </TouchableOpacity>
+            <AddApetComponent></AddApetComponent>
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
+        backgroundColor: "#fff",
         alignItems: "center",
-        backgroundColor: "#f2f2f2",
-        marginTop: 80,
-    },
-    logoContainer: {
         justifyContent: "center",
-        alignItems: "center",
-        height: "28%",
-        marginTop: -70,
-        marginBottom: 10,
+        padding: 20,
     },
-    logo: {
-        width: "50%",
-        height: "100%",
-        resizeMode: "contain",
+    tile: {
+        fontFamily: "Montserrat-Regular",
+        fontSize: 30,
+    },
+    addAPet: {
+        backgroundColor: "#fff",
         borderRadius: 10,
-        aspectRatio: 1, // set the aspect ratio of your logo
-    },
-    turquoiseButton: {
-        marginTop: 30,
-        backgroundColor: "turquoise",
-        paddingVertical: 16,
-        paddingHorizontal: 32,
-        borderRadius: 50,
+        padding: 20,
+        marginBottom: 20,
+        flexDirection: "row",
+        justifyContent: "space-between",
         alignItems: "center",
-        justifyContent: "center",
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.2,
-        shadowRadius: 10,
-        elevation: 3,
     },
-    turquoiseButtonText: {
-        color: "#fff",
+    formContainer: {
+        width: "100%",
+        marginBottom: 20,
+    },
+    label: {
         fontWeight: "bold",
-        fontSize: 18,
+        marginBottom: 5,
+    },
+    input: {
+        borderWidth: 1,
+        borderColor: "#ccc",
+        borderRadius: 4,
+        padding: 10,
+        marginBottom: 20,
+        fontSize: 16,
     },
     buttonContainer: {
-        marginTop: 10,
-        height: "38%",
         width: "100%",
-        justifyContent: "center",
         alignItems: "center",
     },
-    pageDots: {
-        flexDirection: "row",
+    button: {
+        backgroundColor: "#0080ff",
+        borderRadius: 4,
+        paddingVertical: 10,
+        paddingHorizontal: 20,
         marginTop: 20,
     },
-    dot: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: "#c4c4c4",
-        marginHorizontal: 5,
-    },
-    activeDot: {
-        backgroundColor: "turquoise",
-    },
-    textBox: {
-        position: "absolute",
-        width: 293,
-        height: 72,
-        left: 60,
-        top: 472,
-        justifyContent: "center",
-        alignItems: "center",
-    },
-    text: {
-        fontFamily: "Montserrat-Regular",
-        fontStyle: "normal",
-        fontWeight: "500",
-        fontSize: 20,
-        lineHeight: 24,
-        textAlign: "center",
-    },
-    logo: {
-        position: "absolute",
-        width: 305,
-        height: 301,
-        left: "50%",
-        marginLeft: -152.5,
-        top: 173,
-        resizeMode: "contain",
+    buttonText: {
+        color: "#fff",
+        fontSize: 16,
     },
 });
