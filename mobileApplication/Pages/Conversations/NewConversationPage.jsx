@@ -28,16 +28,16 @@ function NewConversationPage({navigation}) {
               <Ionicons name="search-outline" size={20}/>
             </TouchableOpacity>
           </View>
-          <View style={styles.typingField}>
-            <HStack spacing={10}>
-              <TouchableOpacity style={styles.bottomButtons}>
-                <Ionicons name="add-outline" size={30}/>
-              </TouchableOpacity>
-              <TextInput style={styles.input} placeholder="Start typing..."/>
-              <TouchableOpacity style={styles.bottomButtons}>
-                <Ionicons name="send-outline" size={30}/>
-              </TouchableOpacity>
-            </HStack>
+          <View style={styles.header}>
+            <TouchableOpacity style={styles.headerIconContainer} onPress={() => {
+              navigation.navigate('ConversationsPage');
+            }}>
+              <Ionicons name="add-outline" size={30}/>
+            </TouchableOpacity>
+            <TextInput style={styles.headerInput} placeholder='Start typing...'/>
+            <TouchableOpacity style={styles.headerIconContainer} disabled={true}>
+              <Ionicons name="send-outline" size={25}/>
+            </TouchableOpacity>
           </View>
         </VStack>
       </KeyboardAvoidingView>
@@ -73,12 +73,12 @@ const styles = StyleSheet.create({
     height: 30,
   },
   headerInput: {
-    fontSize: 18,
+    fontSize: 16,
     flex: 1,
     height: 40,
     borderWidth: 2,
     borderRadius:20,
-    paddingHorizontal:20,
+    paddingHorizontal:15,
     backgroundColor:'#fcfcfc',
     borderColor: '#9d9d9d',
   },
