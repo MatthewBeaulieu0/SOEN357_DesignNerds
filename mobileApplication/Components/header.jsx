@@ -3,17 +3,6 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 
 const Header = ({ firstName }) => {
-    async function loadFonts() {
-        await Font.loadAsync({
-            "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-        });
-    }
-
-    // Call the loadFonts function when the component mounts
-    React.useEffect(() => {
-        loadFonts();
-    }, []);
-
     return (
         <View style={styles.container}>
             <Text style={[styles.text, { marginTop: 10 }]}>

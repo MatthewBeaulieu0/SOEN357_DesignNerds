@@ -5,22 +5,12 @@ import EasyLoginComponent from "../Components/EasyLoginComponent";
 import FormLoginComponent from "../Components/FormLoginComponent";
 import Header from "../Components/header";
 
-async function loadFonts() {
-    await Font.loadAsync({
-        "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-    });
-}
 export default function HomePage({ route }) {
-    async function loadFonts() {
-        await Font.loadAsync({
-            "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-        });
-    }
     const { firstName } = route.params;
     const handleTurquoiseButtonClick = () => {
         console.log("second login page button clicked");
     };
-    loadFonts();
+
     return (
         <View>
             <Header firstName={firstName} />
@@ -109,7 +99,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     text: {
-        fontFamily: "Montserrat",
+        fontFamily: "Montserrat-Regular",
         fontStyle: "normal",
         fontWeight: "500",
         fontSize: 20,
