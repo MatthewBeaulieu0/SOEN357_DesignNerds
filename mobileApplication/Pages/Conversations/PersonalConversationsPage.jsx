@@ -4,8 +4,7 @@ import React from "react";
 function PersonalConversationsPage({navigation}) {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.navigate('ConversationsPage')}><Text>Personal
-        Convos Page</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('ConversationsPage')}><Text>Personal Convos Page</Text>
       </TouchableOpacity>
     </View>
   )
