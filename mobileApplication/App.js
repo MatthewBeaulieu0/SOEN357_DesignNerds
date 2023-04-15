@@ -41,7 +41,7 @@ export default function App() {
 screenOptions={{
   headerShown: false
 }}>
-  <Stack.Screen name="Home" component={ForumTopics} />
+  <Stack.Screen name="Home" component={Forum} />
   {/*<Stack.Screen name="Home" component={GreetingPage} />*/}
   <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
   <Stack.Screen name="SecondLoginPage" component={SecondLoginPage}/>
