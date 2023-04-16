@@ -63,31 +63,33 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
 };
 
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#E8E8E8",
-        padding: 20,
-        borderRadius: 10,
-        width: "80%",
-    },
-    row: {
-        flexDirection: "row",
-        alignItems: "center",
-        marginBottom: 30,
-    },
-    input: {
-        flex: 1,
-        height: 40,
-        borderWidth: 1,
-        borderColor: "#696969",
-        borderRadius: 5,
-        paddingHorizontal: 10,
-    },
-    ageContainer: {
-        marginRight: 10,
-    },
-    ageInput: {
-        width: 60,
-    },
+  container: {
+    backgroundColor: '#E8E8E8',
+    padding: 20,
+    borderRadius: 10,
+    width: '80%',
+  },
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 30,
+  },
+  input: {
+    fontSize:16,
+    flex: 1,
+    height: 40,
+    borderWidth: 2,
+    borderColor: 'rgba(86,86,86,0.64)',
+    backgroundColor:'white',
+    borderRadius: 10,
+    paddingHorizontal: 10,
+  },
+  ageContainer: {
+    marginRight: 10,
+  },
+  ageInput: {
+    width: 60,
+  },
 });
 
 export default FormLoginComponent;
