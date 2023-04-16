@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     marginBottom: 32,
     marginTop: 20,
   },
-
   dot: {
     width: 10,
     height: 10,

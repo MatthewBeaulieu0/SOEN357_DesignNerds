@@ -5,22 +5,14 @@ import EasyLoginComponent from "../Components/EasyLoginComponent";
 import FormLoginComponent from "../Components/FormLoginComponent";
 import Header from "../Components/header";
 
-async function loadFonts() {
-    await Font.loadAsync({
-        "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-    });
-}
-export default function HomePage({ route }) {
-    async function loadFonts() {
-        await Font.loadAsync({
-            "Montserrat-Regular": require("../assets/fonts/Montserrat-Regular.ttf"),
-        });
-    }
+export default function HomePage({ route, navigation }) {
     const { firstName } = route.params;
-    const handleTurquoiseButtonClick = () => {
-        console.log("second login page button clicked");
+
+    const handleAddPetClick = () => {
+        console.log(firstName);
+        navigation.navigate("AddPetForm", { firstName: firstName });
     };
-    loadFonts();
+
     return (
         <View>
             <Header firstName={firstName} />
@@ -34,6 +26,12 @@ export default function HomePage({ route }) {
                     + button
                 </Text>
             </View>
+            <TouchableOpacity
+                style={styles.addButton}
+                onPress={handleAddPetClick}
+            >
+                <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
         </View>
     );
 }
@@ -109,7 +107,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     text: {
-        fontFamily: "Montserrat",
+        fontFamily: "Montserrat-Regular",
         fontStyle: "normal",
         fontWeight: "500",
         fontSize: 20,
