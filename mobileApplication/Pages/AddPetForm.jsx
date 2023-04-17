@@ -6,6 +6,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     Image,
+    KeyboardAvoidingView,
 } from "react-native";
 import Header from "../Components/header";
 import AddApetComponent from "../Components/AddAPetComponent";
@@ -26,24 +27,14 @@ export default function AddPetForm({ route, navigation }) {
     };
 
     return (
-        <View>
+        <KeyboardAvoidingView
+            behavior="padding"
+            keyboardVerticalOffset={100}
+            style={{ flex: 1 }}
+        >
             <Header firstName={firstName} />
             <View style={styles.addAPet}>
-                <Text
-                    style={[
-                        styles.title,
-                        {
-                            fontFamily: "Montserrat-Regular",
-                            fontSize: 32,
-                            fontWeight: "400",
-                            lineHeight: 39,
-                            letterSpacing: 0,
-                            textAlign: "center",
-                        },
-                    ]}
-                >
-                    Add A Pet
-                </Text>
+                <Text style={[styles.petText]}>Add A Pet</Text>
                 <View style={styles.circle}>
                     <Image source={require("../assets/gallery-add.png")} />
                     <Text style={styles.addPetText}>Upload Pet Avatar</Text>
@@ -53,7 +44,7 @@ export default function AddPetForm({ route, navigation }) {
             <View style={styles.addPetComponent}>
                 <AddApetComponent />
             </View>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 
@@ -64,6 +55,14 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         padding: 20,
+    },
+    petText: {
+        fontFamily: "Montserrat-Regular",
+        fontSize: 32,
+        fontWeight: "400",
+        lineHeight: 39,
+        letterSpacing: 0,
+        textAlign: "center",
     },
     tile: {
         fontFamily: "Montserrat-Regular",
