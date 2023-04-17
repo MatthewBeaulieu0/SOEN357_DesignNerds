@@ -5,6 +5,7 @@ import {
     TextInput,
     StyleSheet,
     TouchableOpacity,
+    Image,
 } from "react-native";
 import Header from "../Components/header";
 import AddApetComponent from "../Components/AddAPetComponent";
@@ -43,8 +44,15 @@ export default function AddPetForm({ route, navigation }) {
                 >
                     Add A Pet
                 </Text>
+                <View style={styles.circle}>
+                    <Image source={require("../assets/gallery-add.png")} />
+                    <Text style={styles.addPetText}>Upload Pet Avatar</Text>
+                </View>
             </View>
-            <AddApetComponent></AddApetComponent>
+
+            <View style={styles.addPetComponent}>
+                <AddApetComponent />
+            </View>
         </View>
     );
 }
@@ -60,6 +68,10 @@ const styles = StyleSheet.create({
     tile: {
         fontFamily: "Montserrat-Regular",
         fontSize: 30,
+    },
+    addPetComponent: {
+        alignItems: "center",
+        justifyContent: "center",
     },
     addAPet: {
         backgroundColor: "#fff",
@@ -100,5 +112,27 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "#fff",
         fontSize: 16,
+    },
+    circle: {
+        position: "absolute",
+        width: 88,
+        height: 86,
+        borderRadius: 44,
+        backgroundColor: "rgba(0, 0, 0, 0.53)",
+        alignItems: "center",
+        justifyContent: "center",
+        right: 20,
+        top: 10,
+        borderColor: "#63C6CD",
+        borderWidth: 2,
+        zIndex: 1,
+    },
+    addPetText: {
+        color: "#000000",
+        fontSize: 13,
+        lineHeight: 17,
+        textAlign: "center",
+        fontFamily: "gothic-a1-regular",
+        fontWeight: "700",
     },
 });

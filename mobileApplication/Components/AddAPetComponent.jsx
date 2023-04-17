@@ -44,7 +44,9 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                     onChangeText={handleBreedChange}
                 />
             </View>
-            <Text style={styles.label}>Birth month and year * Weight(lbs)</Text>
+            <Text style={styles.label}>
+                Birth month and year *        Weight(lbs)
+            </Text>
 
             <View style={styles.row}>
                 <TextInput
@@ -53,7 +55,7 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                         styles.placeholder,
                         { marginRight: 10 },
                     ]}
-                    placeholder="Select date          &#128197;"
+                    placeholder="Select date            &#128197;"
                     value={date}
                     onChangeText={handleDateChange}
                     type="date"
@@ -66,7 +68,12 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                 />
             </View>
             <Text style={styles.vaxTitle}>Vaccination History</Text>
-            <Text style={styles.label}>Vaccine administered*</Text>
+            <View style={styles.rowWithMinus}>
+                <Text style={styles.label}>Vaccine administered*</Text>
+                <View style={styles.minusCircle}>
+                    <Text style={styles.minus}>-</Text>
+                </View>
+            </View>
             <View style={styles.row}>
                 <TextInput
                     style={[styles.input, styles.placeholder]}
@@ -79,10 +86,18 @@ const AddAPetComponent = ({ onPetNameChange }) => {
             <View style={styles.row}>
                 <TextInput
                     style={[styles.input, styles.placeholder]}
-                    placeholder="Select                                                              &#128197;"
+                    placeholder="Select                                                                    &#128197;"
                     value={PetName}
                     onChangeText={handlePetNameChange}
                 />
+            </View>
+
+            <View style={styles.line} />
+            <View style={styles.row}>
+                <View style={styles.ellipse}>
+                    <Text style={styles.plus}>+</Text>
+                </View>
+                <Text style={styles.addVaccine}>Add a vaccine</Text>
             </View>
         </View>
     );
@@ -93,7 +108,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#E8E8E8",
         padding: 20,
         borderRadius: 10,
-        width: "80%",
+        width: "85%",
     },
     vaxTitle: {
         fontWeight: "gothic-a1-regular",
@@ -126,6 +141,62 @@ const styles = StyleSheet.create({
     select: {
         backgroundColor: "#FFFFFF",
         fontWeight: "bold",
+    },
+    line: {
+        borderBottomWidth: 1,
+        borderBottomColor: "#B9B9B9",
+        borderStyle: "dashed",
+        flex: 1,
+        marginLeft: 10,
+    },
+    ellipse: {
+        marginTop: 15,
+        marginLeft: 10,
+        width: 23,
+        height: 23,
+        borderRadius: 15,
+        borderWidth: 2,
+        borderColor: "#63C6CD",
+        alignItems: "center",
+        justifyContent: "center",
+    },
+    plus: {
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#63C6CD",
+        textAlignVertical: "center",
+    },
+    addVaccine: {
+        marginTop: 15,
+        marginLeft: 10,
+        fontFamily: "gothic-a1-regular",
+        fontStyle: "normal",
+        fontWeight: 500,
+        fontSize: 15,
+        lineHeight: 15,
+        color: "#999999",
+    },
+    rowWithMinus: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        marginVertical: 10,
+    },
+    minusCircle: {
+        width: 23,
+        height: 23,
+        borderRadius: 15,
+        borderWidth: 2,
+        borderColor: "#E47D7D",
+        alignItems: "center",
+        justifyContent: "center",
+        marginRight: 10,
+    },
+    minus: {
+        fontSize: 15,
+        fontWeight: "bold",
+        color: "#E47D7D",
+        textAlignVertical: "center",
     },
 });
 
