@@ -23,7 +23,7 @@ function ConversationsPage({navigation}) {
           <Ionicons name="create-outline" size={30}/>
         </TouchableOpacity>
       </HStack>
-      <SearchBar platform="android" placeholder={'Search'} containerStyle={{paddingHorizontal:15}}/>
+      <SearchBar placeholder={'Search'}  containerStyle={{paddingHorizontal:15}}/>
       <ScrollView style={styles.convoListView}>
         <TouchableOpacity onPress={() => navigation.navigate('PersonalConversationsPage')}>
           <View style={styles.convoContainer}>
@@ -108,7 +108,8 @@ function ConversationsPage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop:30
   },
   heading: {
     paddingHorizontal: 20
@@ -124,7 +125,6 @@ const styles = StyleSheet.create({
   convoText: {
     justifyContent: "center",
     width: "80%",
-    alignSelf: 'left',
     minHeight: 50
   },
   title: {
