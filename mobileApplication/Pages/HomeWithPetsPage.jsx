@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import image from '../static/images/PetImage1.png';
 import Header from "../Components/header";
 
-// missing header and footer!!!!!!
+//missing footer
 
 function PetCard({ name, age, breed, imageSource, onPress }) {
   return (
