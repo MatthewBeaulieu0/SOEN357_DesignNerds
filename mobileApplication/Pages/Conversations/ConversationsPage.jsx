@@ -1,15 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import {
   StyleSheet,
   View,
   ScrollView,
   Text,
   TouchableOpacity,
-  TextInput,
-  KeyboardAvoidingView,
-  Platform, Image, SafeAreaView
+  SafeAreaView
 } from "react-native";
-import {HStack, Stack} from "react-native-flex-layout";
+import {HStack} from "react-native-flex-layout";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import {Avatar, SearchBar} from 'react-native-elements';
 
@@ -23,7 +21,7 @@ function ConversationsPage({navigation}) {
           <Ionicons name="create-outline" size={30}/>
         </TouchableOpacity>
       </HStack>
-      <SearchBar platform="android" placeholder={'Search'} containerStyle={{paddingHorizontal:15}}/>
+      <SearchBar placeholder={'Search'} containerStyle={{paddingHorizontal: 15}}/>
       <ScrollView style={styles.convoListView}>
         <TouchableOpacity onPress={() => navigation.navigate('PersonalConversationsPage')}>
           <View style={styles.convoContainer}>
@@ -108,7 +106,8 @@ function ConversationsPage({navigation}) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center"
+    justifyContent: "center",
+    marginTop: 30
   },
   heading: {
     paddingHorizontal: 20
@@ -117,14 +116,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#f2f2f2",
   },
   convoContainer: {
-    marginTop:5,
+    marginTop: 5,
     backgroundColor: "white",
     padding: 20
   },
   convoText: {
     justifyContent: "center",
     width: "80%",
-    alignSelf: 'left',
     minHeight: 50
   },
   title: {
