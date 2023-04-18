@@ -3,18 +3,18 @@ import {
     View,
     ScrollView,
     Text,
-    TextInput,
     StyleSheet,
     TouchableOpacity,
     Image,
 } from "react-native";
 import { Icon } from 'react-native-elements'
-import peanut from "../static/images/cutiepeanut.png"
 import Header from "../Components/header";
-import AddApetComponent from "../Components/AddAPetComponent";
-import HomePage from "./HomePage";
 
 export default function PetProfile({ route, navigation }) {
+    const [petName, setPetName] = useState();
+    const [petDob, setPetDob] = useState();
+    const [vaccines, setVaccines] = useState([]);
+    const [petPicture, setPetPicture] = useState();
     const { firstName } = route.params;
     const handleBackButton = () => {
         navigation.navigate("HomePage", { firstName: firstName });
