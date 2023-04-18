@@ -181,7 +181,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   backArrow: {
-    alignSelf: 'right',
     paddingHorizontal: 20
   },
   title: {
