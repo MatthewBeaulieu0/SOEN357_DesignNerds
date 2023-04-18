@@ -15,6 +15,7 @@ import HomePage from "./Pages/HomePage";
 import AddPetForm from "./Pages/AddPetForm";
 import * as Font from "expo-font";
 import HomeWithPetsPage from './Pages/HomeWithPetsPage';
+import BottomNavigation from "./Components/BottomNavigation";
 
 const Stack = createNativeStackNavigator();
 
@@ -53,7 +54,7 @@ export default function App() {
                 }}
             >
                 <Stack.Screen name="Home" component={GreetingPage} />
-                <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="HomePage" component={BottomNavigation} />
                 <Stack.Screen name="AddPetForm" component={AddPetForm} />
                 <Stack.Screen
                     name="FirstLoginPage"
@@ -79,6 +80,8 @@ export default function App() {
                     component={NewConversationPage}
                 />
             </Stack.Navigator>
+           
+            
         </NavigationContainer>
     );
 }

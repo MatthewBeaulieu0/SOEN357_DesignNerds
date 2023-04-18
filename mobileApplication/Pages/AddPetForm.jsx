@@ -11,6 +11,7 @@ import {
 import Header from "../Components/header";
 import AddApetComponent from "../Components/AddAPetComponent";
 export default function AddPetForm({ route, navigation }) {
+    console.log(route);
     const { firstName } = route.params;
     const [petName, setPetName] = useState("");
     const [breed, setBreed] = useState("");
