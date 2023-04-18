@@ -13,6 +13,7 @@ import PersonalConversationsPage from "./Pages/Conversations/PersonalConversatio
 import NewConversationPage from "./Pages/Conversations/NewConversationPage";
 import HomePage from "./Pages/HomePage";
 import AddPetForm from "./Pages/AddPetForm";
+import PetProfile from "./Pages/PetProfile";
 import * as Font from "expo-font";
 const Stack = createNativeStackNavigator();
 
@@ -53,6 +54,7 @@ export default function App() {
                 <Stack.Screen name="Home" component={GreetingPage} />
                 <Stack.Screen name="HomePage" component={HomePage} />
                 <Stack.Screen name="AddPetForm" component={AddPetForm} />
+                <Stack.Screen name="PetProfile" component={PetProfile} />
                 <Stack.Screen
                     name="FirstLoginPage"
                     component={FirstLoginPage}
