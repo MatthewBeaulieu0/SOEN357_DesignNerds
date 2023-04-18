@@ -9,8 +9,10 @@ export default function HomePage({ route, navigation }) {
     const { firstName } = route.params;
 
     const handleAddPetClick = () => {
+       
         console.log(firstName);
-        navigation.navigate("AddPetForm", { firstName: firstName });
+        
+        navigation.navigate({name:"AddPetForm", params:{firstName: firstName}});
     };
 
     return (

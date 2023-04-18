@@ -15,11 +15,12 @@ import HomePage from "./Pages/HomePage";
 import AddPetForm from "./Pages/AddPetForm";
 import * as Font from "expo-font";
 import HomeWithPetsPage from './Pages/HomeWithPetsPage';
+import BottomNavigation from "./Components/BottomNavigation";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
-    async function loadFonts() {
+export default function App () {
+    async function loadFonts () {
         await Font.loadAsync({
             "Montserrat-Regular": require("../mobileApplication/assets/fonts/Montserrat-Regular.ttf"),
             "gothic-a1-regular": require("../mobileApplication/assets/fonts/GothicA1-Regular.ttf"),
@@ -47,37 +48,18 @@ export default function App() {
 
     return (
         <NavigationContainer>
-            <Stack.Navigator
-                screenOptions={{
-                    headerShown: false,
-                }}
-            >
+            <Stack.Navigator screenOptions={{ headerShown: false, }} >
                 <Stack.Screen name="Home" component={GreetingPage} />
-                <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="HomePage" component={BottomNavigation} />
                 <Stack.Screen name="AddPetForm" component={AddPetForm} />
-                <Stack.Screen
-                    name="FirstLoginPage"
-                    component={FirstLoginPage}
-                />
-                <Stack.Screen
-                    name="SecondLoginPage"
-                    component={SecondLoginPage}
-                />
+                <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
+                <Stack.Screen name="SecondLoginPage" component={SecondLoginPage} />
                 <Stack.Screen name="ForumTopics" component={ForumTopics} />
                 <Stack.Screen name="Forum" component={Forum} />
-                <Stack.Screen name="HomeWithPetsPage" component={HomeWithPetsPage}/>
-                <Stack.Screen
-                    name="ConversationsPage"
-                    component={ConversationsPage}
-                />
-                <Stack.Screen
-                    name="PersonalConversationsPage"
-                    component={PersonalConversationsPage}
-                />
-                <Stack.Screen
-                    name="NewConversationPage"
-                    component={NewConversationPage}
-                />
+                <Stack.Screen name="HomeWithPetsPage" component={HomeWithPetsPage} />
+                <Stack.Screen name="ConversationsPage" component={ConversationsPage} />
+                <Stack.Screen name="PersonalConversationsPage" component={PersonalConversationsPage} />
+                <Stack.Screen name="NewConversationPage" component={NewConversationPage} />
             </Stack.Navigator>
         </NavigationContainer>
     );
