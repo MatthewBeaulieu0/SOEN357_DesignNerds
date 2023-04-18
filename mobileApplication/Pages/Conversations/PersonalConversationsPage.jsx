@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import sendIcon from '../../static/images/sendIcon.png'
 import plusIcon from '../../static/images/plusIcon.png';
 import backIcon from '../../static/images/backIcon.png';
@@ -16,7 +16,7 @@ function PersonalConversationsPage({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerIconContainer} onPress={navigateToConversations}>
           <Image source={backIcon} style={styles.headerIcon} />
@@ -76,7 +76,7 @@ function PersonalConversationsPage({ navigation }) {
           <Image source={sendIcon} style={styles.footerIcon} />
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView >
   );
 }
 
