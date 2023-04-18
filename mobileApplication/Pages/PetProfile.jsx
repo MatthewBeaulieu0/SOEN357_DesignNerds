@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Icon } from 'react-native-elements'
 import Header from "../Components/header";
+import PetVaccine from "../Components/PetVaccine";
 
 export default function PetProfile({ route, navigation }) {
     const [petName, setPetName] = useState();
@@ -47,32 +48,9 @@ export default function PetProfile({ route, navigation }) {
                 <Text style={styles.heading}>
                     Vaccination History
                 </Text>
-                <View style = {styles.vaccineContainer}>
-                    <Text>
-                        Split Vaccine
-                    </Text>
-                    <Text>
-                        03-12-2021
-                    </Text>
-                </View>
-                <View style={styles.vaccineContainer}>
-                    <Text>
-                        Booster
-                    </Text>
-                    <Text>
-                        03-26-2021
-                    </Text>
-                </View>
-                <View style={styles.vaccineContainer}>
-                    <Text>
-                        Booster
-                    </Text>
-                    <Text>
-                        04-07-2021
-                    </Text>
-                </View>
-                
-                
+                <PetVaccine vaccineName = 'Split Vaccine' vaccineDate = '03-12-2021' />
+                <PetVaccine vaccineName = 'Booster' vaccineDate = '03-26-2021' />
+                <PetVaccine vaccineName = 'Booster' vaccineDate = '04-07-2021' />                
                 <View style = {styles.lineStyle} />
             </View>
         </ScrollView>
