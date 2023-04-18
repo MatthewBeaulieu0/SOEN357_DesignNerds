@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
   TextInput,
   KeyboardAvoidingView,
-  Platform, Image
+  Platform
 } from "react-native";
 import {HStack, Stack} from "react-native-flex-layout";
-import Ionicons from "@expo/vector-icons/Ionicons";
 import {Avatar} from 'react-native-elements';
+import Ionicons from '@expo/vector-icons/Ionicons'
 
 function Forum({navigation}) {
   const [openCommentInput, setOpenCommentInput] = useState(false);
@@ -100,9 +100,7 @@ function Forum({navigation}) {
 
           <Stack direction={'row'} spacing={10}>
             <TouchableOpacity onPress={handleOpenCommentInput}>
-              <View style={styles.replyBtn}>
                 <Ionicons name="arrow-redo-outline" size={25}/>
-              </View>
             </TouchableOpacity>
             <View style={styles.replyContainer}>
               <Stack direction="row" spacing={10} style={styles.usernameHeader}>
@@ -157,7 +155,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     backgroundColor: "#f2f2f2",
     marginTop: 80,
     marginBottom: 20
