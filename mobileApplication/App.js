@@ -13,6 +13,7 @@ import PersonalConversationsPage from "./Pages/Conversations/PersonalConversatio
 import NewConversationPage from "./Pages/Conversations/NewConversationPage";
 import HomePage from "./Pages/HomePage";
 import AddPetForm from "./Pages/AddPetForm";
+import PetProfile from "./Pages/PetProfile";
 import * as Font from "expo-font";
 import HomeWithPetsPage from './Pages/HomeWithPetsPage';
 import BottomNavigation from "./Components/BottomNavigation";
@@ -52,8 +53,15 @@ export default function App () {
                 <Stack.Screen name="Home" component={GreetingPage} />
                 <Stack.Screen name="HomePage" component={BottomNavigation} />
                 <Stack.Screen name="AddPetForm" component={AddPetForm} />
-                <Stack.Screen name="FirstLoginPage" component={FirstLoginPage} />
-                <Stack.Screen name="SecondLoginPage" component={SecondLoginPage} />
+                <Stack.Screen name="PetProfile" component={PetProfile} />
+                <Stack.Screen
+                    name="FirstLoginPage"
+                    component={FirstLoginPage}
+                />
+                <Stack.Screen
+                    name="SecondLoginPage"
+                    component={SecondLoginPage}
+                />
                 <Stack.Screen name="ForumTopics" component={ForumTopics} />
                 <Stack.Screen name="Forum" component={Forum} />
                 <Stack.Screen name="HomeWithPetsPage" component={HomeWithPetsPage} />

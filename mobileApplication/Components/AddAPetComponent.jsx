@@ -61,7 +61,7 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                     type="date"
                 />
                 <TextInput
-                    style={[styles.input, styles.placeholder, { width: 100 }]}
+                    style={[styles.input, { width: 100 }]}
                     placeholder="Weight"
                     value={weight}
                     onChangeText={handleWeightChange}
@@ -134,9 +134,6 @@ const styles = StyleSheet.create({
         borderColor: "#63C6CD",
         borderRadius: 5,
         paddingHorizontal: 10,
-    },
-    placeholder: {
-        color: "#A9A9A9",
     },
     select: {
         backgroundColor: "#FFFFFF",
