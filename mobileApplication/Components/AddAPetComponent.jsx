@@ -186,9 +186,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
     },
-    placeholder: {
-        color: "#A9A9A9",
-    },
     select: {
         backgroundColor: "#FFFFFF",
         fontWeight: "bold",

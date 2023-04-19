@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import image from '../static/images/PetImage1.png';
 import Header from "../Components/header";
 
@@ -31,7 +31,7 @@ function HomeWithPetsPage({ navigation, route }) {
   };
 
   return (
-    <View style={styles.pageContainer}>
+    <SafeAreaView style={styles.pageContainer}>
       <Header firstName={firstName} />
         <Text style={styles.title}>My Pets</Text>
     <PetCard
@@ -48,7 +48,7 @@ function HomeWithPetsPage({ navigation, route }) {
       imageSource={require('../static/images/PetImage2.png')}
       onPress={handlePetComponentClick}
     />
-  </View>
+  </SafeAreaView >
   );
 };
 

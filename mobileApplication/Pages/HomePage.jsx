@@ -9,9 +9,15 @@ export default function HomePage({ route, navigation }) {
     const { firstName } = route.params;
 
     const handleAddPetClick = () => {
+       
         console.log(firstName);
-        navigation.navigate("AddPetForm", { firstName: firstName });
+        
+        navigation.navigate({name:"AddPetForm", params:{firstName: firstName}});
     };
+
+    const handleviewPetClick = () => {
+        navigation.navigate("PetProfile", { firstName: firstName });
+    }
 
     return (
         <View>
@@ -31,6 +37,12 @@ export default function HomePage({ route, navigation }) {
                 onPress={handleAddPetClick}
             >
                 <Text style={styles.buttonText}>+</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+                style={styles.addButton}
+                onPress={handleviewPetClick}
+            >
+                <Text style={styles.buttonText}>View Pet Profile</Text>
             </TouchableOpacity>
         </View>
     );
