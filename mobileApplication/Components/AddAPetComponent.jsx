@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 
 const AddAPetComponent = ({ onPetNameChange }) => {
+    const [vaccines, setVaccines] = useState([{ name: "", date: "" }]);
     const [PetName, setPetName] = useState("");
     const [breed, setBreed] = useState("");
     const [weight, setWeight] = useState("");
@@ -23,13 +24,27 @@ const AddAPetComponent = ({ onPetNameChange }) => {
     const handleDateChange = (text) => {
         setDate(text);
     };
-
+    const handleRemoveVaccine = (index) => {
+        const updatedVaccines = [...vaccines];
+        updatedVaccines.splice(index, 1);
+        setVaccines(updatedVaccines);
+    };
+    const handleAddVaccine = () => {
+        setVaccines((prevVaccines) => [
+            ...prevVaccines,
+            { name: "", date: "" },
+        ]);
+    };
     return (
         <View style={styles.container}>
             <Text style={styles.label}>Pet Name *</Text>
             <View style={styles.row}>
                 <TextInput
-                    style={[styles.input, styles.placeholder]}
+                    style={[
+                        styles.input,
+                        styles.placeholder,
+                        { color: "#333" },
+                    ]}
                     placeholder="Enter Pet Name"
                     value={PetName}
                     onChangeText={handlePetNameChange}
@@ -38,7 +53,11 @@ const AddAPetComponent = ({ onPetNameChange }) => {
             <Text style={styles.label}>Breed</Text>
             <View style={styles.row}>
                 <TextInput
-                    style={[styles.input, styles.placeholder]}
+                    style={[
+                        styles.input,
+                        styles.placeholder,
+                        { color: "#333" },
+                    ]}
                     placeholder="Enter Breed"
                     value={breed}
                     onChangeText={handleBreedChange}
@@ -53,6 +72,7 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                     style={[
                         styles.input,
                         styles.placeholder,
+                        { color: "#333" },
                         { marginRight: 10 },
                     ]}
                     placeholder="Select date            &#128197;"
@@ -61,41 +81,72 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                     type="date"
                 />
                 <TextInput
-                    style={[styles.input, styles.placeholder, { width: 100 }]}
+                    style={[
+                        styles.input,
+                        styles.placeholder,
+                        { color: "#333" },
+                        { width: 100 },
+                    ]}
                     placeholder="Weight"
                     value={weight}
                     onChangeText={handleWeightChange}
                 />
             </View>
             <Text style={styles.vaxTitle}>Vaccination History</Text>
-            <View style={styles.rowWithMinus}>
-                <Text style={styles.label}>Vaccine administered*</Text>
-                <View style={styles.minusCircle}>
-                    <Text style={styles.minus}>-</Text>
+            {vaccines.map((vaccine, index) => (
+                <View key={index}>
+                    <View style={styles.rowWithMinus}>
+                        <Text style={styles.label}>Vaccine administered*</Text>
+                        <View style={styles.minusCircle}>
+                            <Text
+                                style={styles.minus}
+                                onPress={() => handleRemoveVaccine(index)}
+                            >
+                                -
+                            </Text>
+                        </View>
+                    </View>
+                    <View style={styles.row}>
+                        <TextInput
+                            style={[
+                                styles.input,
+                                styles.placeholder,
+                                { color: "#333" },
+                            ]}
+                            placeholder="Enter the vaccine"
+                            value={vaccine.name}
+                            onChangeText={(name) => {
+                                const updatedVaccines = [...vaccines];
+                                updatedVaccines[index].name = name;
+                                setVaccines(updatedVaccines);
+                            }}
+                        />
+                    </View>
+                    <Text style={styles.label}>Vaccination date*</Text>
+                    <View style={styles.row}>
+                        <TextInput
+                            style={[
+                                styles.input,
+                                styles.placeholder,
+                                { color: "#333" },
+                            ]}
+                            placeholder="Select                                                                    &#128197;"
+                            value={vaccine.date}
+                            onChangeText={(date) => {
+                                const updatedVaccines = [...vaccines];
+                                updatedVaccines[index].date = date;
+                                setVaccines(updatedVaccines);
+                            }}
+                        />
+                    </View>
+                    <View style={styles.line} />
                 </View>
-            </View>
-            <View style={styles.row}>
-                <TextInput
-                    style={[styles.input, styles.placeholder]}
-                    placeholder="Enter the vaccine"
-                    value={PetName}
-                    onChangeText={handlePetNameChange}
-                />
-            </View>
-            <Text style={styles.label}>Vaccination date*</Text>
-            <View style={styles.row}>
-                <TextInput
-                    style={[styles.input, styles.placeholder]}
-                    placeholder="Select                                                                    &#128197;"
-                    value={PetName}
-                    onChangeText={handlePetNameChange}
-                />
-            </View>
-
-            <View style={styles.line} />
+            ))}
             <View style={styles.row}>
                 <View style={styles.ellipse}>
-                    <Text style={styles.plus}>+</Text>
+                    <Text style={styles.plus} onPress={handleAddVaccine}>
+                        +
+                    </Text>
                 </View>
                 <Text style={styles.addVaccine}>Add a vaccine</Text>
             </View>
