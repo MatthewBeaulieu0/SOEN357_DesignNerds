@@ -19,6 +19,10 @@ export default function HomePage({ route, navigation }) {
         navigation.navigate("PetProfile", { firstName: firstName });
     }
 
+    console.log("in hromepage")
+
+    console.log(firstName);
+
     return (
         <View>
             <Header firstName={firstName} />

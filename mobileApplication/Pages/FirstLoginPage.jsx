@@ -7,7 +7,7 @@ function FirstLoginPage({ navigation }) {
   const handleTurquoiseButtonClick = () => {
     console.log("button clicked");
 
-    navigation.navigate('SecondLoginPage')
+    //navigation.navigate('SecondLoginPage')
 
     // handle turquoise button click logic here
   };
@@ -17,7 +17,7 @@ function FirstLoginPage({ navigation }) {
         <Image source={image} style={styles.logo} />
       </View>
       <View style={styles.buttonContainer}>
-        <EasyLoginComponent />
+        <EasyLoginComponent navigation={navigation} />
       </View>
       <TouchableOpacity
         style={styles.turquoiseButton}

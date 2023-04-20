@@ -21,6 +21,8 @@ import BottomNavigation from "./Components/BottomNavigation";
 const Stack = createNativeStackNavigator();
 
 export default function App () {
+
+
     async function loadFonts () {
         await Font.loadAsync({
             "Montserrat-Regular": require("../mobileApplication/assets/fonts/Montserrat-Regular.ttf"),
@@ -32,9 +34,10 @@ export default function App () {
         console.log(app);
         console.log(auth);
         loadFonts();
+        
         // Log connection status
         const unsubscribe = auth().onAuthStateChanged((user) => {
-            console.log("hello " + user);
+            console.log("hello " + user.uid);
             if (user) {
                 console.log("Firebase connection established.");
             } else {
