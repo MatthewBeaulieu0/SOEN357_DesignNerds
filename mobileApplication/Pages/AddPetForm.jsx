@@ -7,6 +7,7 @@ import {
     TouchableOpacity,
     Image,
     KeyboardAvoidingView,
+    ScrollView,
 } from "react-native";
 import Header from "../Components/header";
 import AddApetComponent from "../Components/AddAPetComponent";
@@ -28,11 +29,7 @@ export default function AddPetForm({ route, navigation }) {
     };
 
     return (
-        <KeyboardAvoidingView
-            behavior="padding"
-            keyboardVerticalOffset={100}
-            style={{ flex: 1 }}
-        >
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
             <Header firstName={firstName} />
             <View style={styles.addAPet}>
                 <Text style={[styles.petText]}>Add A Pet</Text>
@@ -45,7 +42,7 @@ export default function AddPetForm({ route, navigation }) {
             <View style={styles.addPetComponent}>
                 <AddApetComponent />
             </View>
-        </KeyboardAvoidingView>
+        </ScrollView>
     );
 }
 
