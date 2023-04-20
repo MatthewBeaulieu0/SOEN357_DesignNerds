@@ -35,7 +35,7 @@ function Forum({navigation}) {
       style={styles.container}
     >
       <TouchableOpacity style={styles.backArrow} onPress={() => {
-        navigation.navigate('ForumTopics');
+        navigation.navigate("HomePage", { firstName: "Marianne" });
       }}>
         <HStack style={{alignItems: "center"}}>
           <Ionicons name="chevron-back-outline" size={25}/>

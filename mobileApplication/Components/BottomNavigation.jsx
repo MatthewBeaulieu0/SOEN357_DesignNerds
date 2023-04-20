@@ -6,10 +6,10 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { green } from "@mui/material/colors";
 import ForumTopics from "../Pages/Forums/ForumTopics";
-import {auth} from "../firebaseConfig";
+import { auth } from "../firebaseConfig";
 import { useEffect, useState } from "react";
 import { db } from "../firebaseConfig";
-import { collection, doc, setDoc,getDoc } from "firebase/firestore"
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,16 +19,8 @@ const AddTabButton = (children, onPress) => {
   </TouchableOpacity>;
 };
 
-
-
-export default function BottomNavigation({ route, navigation}) {
-
+export default function BottomNavigation({ route, navigation }) {
   const { firstName } = route.params;
-
-  //const userID = auth().currentUser.uid
-  //const [user, setUser] = useState({})
-  
-  
 
   return (
     <Tab.Navigator

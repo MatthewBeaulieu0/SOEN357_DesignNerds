@@ -31,13 +31,10 @@ export default function App () {
         console.log("Loaded");
     }
     useEffect(() => {
-        console.log(app);
-        console.log(auth);
         loadFonts();
         
         // Log connection status
         const unsubscribe = auth().onAuthStateChanged((user) => {
-            console.log("hello " + user.uid);
             if (user) {
                 console.log("Firebase connection established.");
             } else {
