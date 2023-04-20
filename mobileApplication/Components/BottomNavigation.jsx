@@ -6,6 +6,10 @@ import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { green } from "@mui/material/colors";
 import ForumTopics from "../Pages/Forums/ForumTopics";
+import { auth } from "../firebaseConfig";
+import { useEffect, useState } from "react";
+import { db } from "../firebaseConfig";
+import { collection, doc, setDoc, getDoc } from "firebase/firestore";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +19,9 @@ const AddTabButton = (children, onPress) => {
   </TouchableOpacity>;
 };
 
-export default function BottomNavigation({ navigation }) {
+export default function BottomNavigation({ route, navigation }) {
+  const { firstName } = route.params;
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -41,7 +47,7 @@ export default function BottomNavigation({ navigation }) {
       <Tab.Screen
         name="Home"
         component={HomePage}
-        initialParams={{ firstName: "marianne" }}
+        initialParams={{ firstName: firstName }}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
@@ -76,14 +82,14 @@ export default function BottomNavigation({ navigation }) {
       <Tab.Screen
         name="addPet"
         component={AddPetForm}
-        initialParams={{ firstName: "marianne" }}
+        initialParams={{ firstName: firstName }}
         options={{
           tabBarButton: (props) => (
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate({
                   name: "AddPetForm",
-                  params: { firstName: "marianne" },
+                  params: { firstName: firstName },
                 });
               }}
               style={styles.addBtn}
@@ -99,7 +105,7 @@ export default function BottomNavigation({ navigation }) {
       <Tab.Screen
         name="forum"
         component={ForumTopics}
-        initialParams={{ firstName: "marianne" }}
+        initialParams={{ firstName: firstName }}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>
@@ -117,7 +123,7 @@ export default function BottomNavigation({ navigation }) {
       <Tab.Screen
         name="profile"
         component={ForumTopics}
-        initialParams={{ firstName: "marianne" }}
+        initialParams={{ firstName: firstName }}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.iconContainer}>

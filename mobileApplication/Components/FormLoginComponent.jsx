@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, TextInput, StyleSheet } from "react-native";
 
-const FormLoginComponent = ({ onFirstNameChange }) => {
-    const [firstName, setFirstName] = useState("");
-    const [lastName, setLastName] = useState("");
-    const [age, setAge] = useState("");
-    const [country, setCountry] = useState("");
+const FormLoginComponent = ({ onFirstNameChange, userID, ageP, countryP, firstNameP, lastNameP}) => {
+    const [firstName, setFirstName] = useState(firstNameP);
+    const [lastName, setLastName] = useState(lastNameP);
+    const [age, setAge] = useState(ageP);
+    const [country, setCountry] = useState(countryP);
 
     const handleFirstNameChange = (text) => {
         setFirstName(text);
@@ -24,6 +24,12 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
         setCountry(text);
     };
 
+    useEffect(()=>{
+        console.log("in second page")
+        console.log(ageP)
+    })
+    
+
     return (
         <View style={styles.container}>
             <View style={styles.row}>
@@ -32,6 +38,7 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
                     placeholder="First Name"
                     value={firstName}
                     onChangeText={handleFirstNameChange}
+                    defaultValue={firstNameP}
                 />
             </View>
             <View style={styles.row}>
@@ -40,6 +47,8 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
                     placeholder="Last Name"
                     value={lastName}
                     onChangeText={handleLastNameChange}
+                    defaultValue={lastNameP}
+                    
                 />
             </View>
             <View style={styles.row}>
@@ -49,6 +58,8 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
                         placeholder="Age"
                         value={age}
                         onChangeText={handleAgeChange}
+                        defaultValue={ageP+""}
+                        
                     />
                 </View>
                 <TextInput
@@ -56,6 +67,7 @@ const FormLoginComponent = ({ onFirstNameChange }) => {
                     placeholder="Country"
                     value={country}
                     onChangeText={handleCountryChange}
+                    defaultValue={""+countryP}
                 />
             </View>
         </View>

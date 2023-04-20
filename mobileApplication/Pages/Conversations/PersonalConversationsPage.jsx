@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { StyleSheet, View, Text, Image, TouchableOpacity, TextInput, ScrollView, SafeAreaView } from 'react-native';
 import backIcon from '../../static/images/backIcon.png';
 import searchIcon from '../../static/images/searchIcon.png';
@@ -6,16 +6,79 @@ import searchIcon from '../../static/images/searchIcon.png';
 import checkmarkIcon from '../../static/images/checkmark.png';
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+import React, {
+  useState,
+  useEffect,
+  useLayoutEffect,
+  useCallback
+} from 'react';
+import { GiftedChat } from 'react-native-gifted-chat';
+import {
+  collection,
+  addDoc,
+  orderBy,
+  query,
+  onSnapshot
+} from 'firebase/firestore';
+import { Divider } from "@react-native-material/core";
+
+
+import { auth, db } from "../../firebaseConfig";
+
 function PersonalConversationsPage({ navigation }) {
+  const [messages, setMessages] = useState([]);
+
+
+
   function navigateToConversations() {
 
     //navigation using 'backIcon' button works, brings user back to ConversationsPage
-    navigation.navigate('ConversationsPage');
+    navigation.navigate("HomePage", { firstName: "Marianne" });
   };
 
+
+    const userID = auth().currentUser.uid
+
+
+
+
+  useEffect(() => {
+    const collectionRef = collection(db, 'chats');
+    const q = query(collectionRef, orderBy('createdAt', 'desc'));
+
+    const unsubscribe = onSnapshot(q, querySnapshot => {
+      setMessages(
+        querySnapshot.docs.map(doc => ({
+          _id: doc.data()._id,
+          createdAt: doc.data().createdAt.toDate(),
+          text: doc.data().text,
+          user: doc.data().user
+        }))
+      );
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+
+  const onSend = useCallback((messages = []) => {
+    setMessages(previousMessages =>
+      GiftedChat.append(previousMessages, messages)
+    );
+    const { _id, createdAt, text, user } = messages[0];
+    addDoc(collection(db, 'chats'), {
+      _id,
+      createdAt,
+      text,
+      user
+    });
+  }, []);
+
+
   return (
+
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
+       <View style={styles.header}>
         <TouchableOpacity style={styles.headerIconContainer} onPress={navigateToConversations}>
           <Image source={backIcon} style={styles.headerIcon} />
         </TouchableOpacity>
@@ -23,62 +86,43 @@ function PersonalConversationsPage({ navigation }) {
         <TouchableOpacity style={styles.headerIconContainer}>
           <Image source={searchIcon} style={styles.headerIcon} />
         </TouchableOpacity>
+       
       </View>
-      <ScrollView contentContainerStyle={{ paddingBottom: 70 }}>
-      <View style={[styles.chatContainer, styles.chatLeft]}>
-        <Text style={styles.chatText}>Hi Marianne, what could i help you with today?</Text>
-        <View style={styles.chatTimeStampContainer}>
-        <Text style={styles.chatTimeStamp}>5 min ago</Text>
-        </View>
-      </View>
-      <View style={[styles.chatContainer, styles.chatRight]}>
-      <View style={styles.chatContent}>
-    <Text style={styles.chatText}>Hi Demola! My cat has been balding where she is licking should I take her to a vet?</Text>
-    <View style={styles.checkmarkIconContainer}>
-            <Image source={checkmarkIcon} style={styles.checkmarkIcon} />
-          </View>
-     </View>
-     <View style={styles.chatTimeStampContainer}>
-    <Text style={styles.chatTimeStamp}>4 min ago</Text>
-     </View>
-    </View>
-        <View style={[styles.chatContainer, styles.chatLeft]}>
-        <Text style={styles.chatText}>Could you send me a picture of the spot?</Text>
-        <View style={styles.chatTimeStampContainer}>
-        <Text style={styles.chatTimeStamp}>2 min ago</Text>
-        </View>
-      </View>
-      <View style={[styles.chatContainer, styles.chatRight, styles.chatImageContainer]}>
-        <View style={styles.chatContent}>
-        <Image source={require('../../static/images/CatBaldSpot.png')} style={styles.chatImage} />
-        <View style={styles.checkmarkIconContainer}>
-            <Image source={checkmarkIcon} style={styles.checkmarkIcon} />
-          </View>
-        </View>
-        <View style={styles.chatTimeStampContainer}>
-        <Text style={styles.chatTimeStamp}>1 min ago</Text>
-        </View>
-      </View>
-      </ScrollView>
-      <View style={styles.line} />
-      <View style={styles.header}>
-        <TouchableOpacity style={styles.headerIconContainer}>
-        <Ionicons name="add-outline" size={30} color="#000"/>
-            </TouchableOpacity>
-            <TextInput style={styles.headerInput} placeholder='Start typing...'/>
-            <TouchableOpacity style={styles.headerIconContainer} disabled={true}>
-              <Ionicons name="send-outline" size={25} color="#000"/>
-            </TouchableOpacity>
-          </View>
-    </SafeAreaView >
+      <View
+  style={{
+    borderBottomColor: 'black',
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    width:"95%",
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft:"auto",
+    marginRight:"auto",
+    marginTop:-10
+  }}
+/>
+   
+      <GiftedChat
+      messages={messages}
+      showAvatarForEveryMessage={true}
+      onSend={messages => onSend(messages)}
+      user={{
+        _id: userID,
+        avatar: 'https://avatars.githubusercontent.com/u/10234615?v=4'
+      }}
+    />
+
+
+</SafeAreaView >
   );
 }
+
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+   
   },
   line: {
     height: 1,
@@ -91,6 +135,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 5,
+    marginTop:50
   },
   headerInput: {
     fontSize: 16,

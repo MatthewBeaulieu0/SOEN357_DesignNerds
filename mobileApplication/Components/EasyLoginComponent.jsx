@@ -1,11 +1,12 @@
-import React from 'react';
-import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
+import React,{useState} from 'react';
+import {StyleSheet, View, Text, Image, TouchableOpacity, Modal, Pressable,TextInput} from 'react-native';
 import image from '../static/images/GreetingLogo.png';
 import Ionicons from '@expo/vector-icons/Ionicons'
 import {Stack, HStack, VStack} from 'react-native-flex-layout';
+import Login from '../BackendLogic/Authentication';
 
 
-function EasyLoginComponent() {
+function EasyLoginComponent({ navigation }) {
 
   const handleGoogleSignIn = () => {
     console.log('Google Sign In clicked');
@@ -17,18 +18,39 @@ function EasyLoginComponent() {
     // handle Microsoft Sign In logic here
   };
 
-  const handleFacebookSignIn = () => {
+  const handleFacebookSignIn = async() => {
     console.log('Facebook Sign In clicked');
-    // handle Facebook Sign In logic here
+    let user  = await Login(false)
+    if(user){
+      console.log(user)
+      navigation.navigate('SecondLoginPage',{userID: user})
+    }
   };
 
-  const handleAppleSignIn = () => {
+  const handleAppleSignIn = async () => {
     console.log('Apple Sign In clicked');
     // handle Apple Sign In logic here
+    let user  = await Login(true)
+    if(user){
+      console.log(user)
+      navigation.navigate('SecondLoginPage',{userID: user})
+    }
   };
 
   return (
     <View style={styles.container}>
+       <TouchableOpacity style={[styles.button, styles.blackButton]} onPress={handleAppleSignIn}>
+        <HStack spacing={10} style={styles.iconContent}>
+          <Ionicons name="person-circle" size={30} color="white"/>
+          <Text style={styles.text}>Sign in as user</Text>
+        </HStack>
+      </TouchableOpacity>
+      <TouchableOpacity style={[styles.button, styles.blueButton]} onPress={handleFacebookSignIn}>
+        <HStack spacing={10} style={styles.iconContent}>
+        <Ionicons name="medkit" size={30} color="white"/>
+          <Text style={styles.text}>Sign in as veterinary</Text>
+        </HStack>
+      </TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleGoogleSignIn}>
         <HStack spacing={10} style={styles.iconContent}>
           <Image style={styles.img} source={require('../static/images/Google.png')}/>
@@ -41,18 +63,7 @@ function EasyLoginComponent() {
           <Text style={styles.text}>Sign in with Microsoft</Text>
         </HStack>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.blueButton]} onPress={handleFacebookSignIn}>
-        <HStack spacing={10} style={styles.iconContent}>
-          <Image style={styles.img} source={require('../static/images/Facebook.png')}/>
-          <Text style={styles.text}>Sign in with Facebook</Text>
-        </HStack>
-      </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.blackButton]} onPress={handleAppleSignIn}>
-        <HStack spacing={10} style={styles.iconContent}>
-          <Ionicons name="logo-apple" size={30} color="white"/>
-          <Text style={styles.text}>Sign in with Apple</Text>
-        </HStack>
-      </TouchableOpacity>
+      
     </View>
   );
 }
@@ -97,6 +108,54 @@ const styles = StyleSheet.create({
   },
   textGoogle : {
     color:'#757575',
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  buttonModal: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: '#F194FF',
+  },
+  buttonClose: {
+    backgroundColor: '#2196F3',
+  },
+  textStyle: {
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+  
+  
+  inputModal: {
+    fontSize:16,
+    flex: 1,
+    height: 40,
+    
+    borderWidth: 2,
+    borderColor: 'rgba(86,86,86,0.64)',
+    backgroundColor:'white',
+    borderRadius: 10,
+    paddingHorizontal: 10,
   },
 });
 

@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#E5E5E5',
     justifyContent: 'space-between',
+    marginTop:50,
   },
   headerIconContainer: {
     width: 30,
