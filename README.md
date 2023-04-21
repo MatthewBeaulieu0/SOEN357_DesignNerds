@@ -19,11 +19,11 @@ while on the Android Studio installation wizard,
 If you are having trouble setting up the environment, you can find more information here: https://reactnative.dev/docs/environment-setup?guide=native&os=windows
 
 ## Team members
-| Names                    |  
-| :----------------------- |
-Diana Alexandra Merlusca|	
-Matthew Beaulieu|	
-Bogdan Podariu|
-Nadia Beauregard|
-Alexandra Spyridakos|
-Andrew Rover|
+| Name                     | Student Id |
+| :----------------------- | :----------|
+Diana Alexandra Merlusca|	40169125 |
+Matthew Beaulieu|	40174103 |
+Bogdan Podariu|  40156514 |
+Nadia Beauregard| 40128655 |
+Alexandra Spyridakos| 40175280 |
+Andrew Rover| 40112081 |
