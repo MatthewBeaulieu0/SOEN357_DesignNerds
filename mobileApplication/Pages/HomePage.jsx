@@ -45,9 +45,7 @@ export default function HomePage({ route, navigation }) {
             <TouchableOpacity
                 style={styles.addButton}
                 onPress={handleviewPetClick}
-            >
-                <Text style={styles.buttonText}>View Pet Profile</Text>
-            </TouchableOpacity>
+            ></TouchableOpacity>
         </View>
     );
 }

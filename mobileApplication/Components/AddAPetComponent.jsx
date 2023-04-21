@@ -2,12 +2,17 @@ import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
-const AddAPetComponent = ({ onPetNameChange }) => {
+import { db } from "../firebaseConfig";
+import { collection, addDoc } from "firebase/firestore";
+import { useNavigation } from "@react-navigation/native";
+
+const AddAPetComponent = ({ firstName }) => {
+    const navigation = useNavigation();
     const [vaccines, setVaccines] = useState([{ name: "", date: "" }]);
     const [PetName, setPetName] = useState("");
     const [breed, setBreed] = useState("");
     const [weight, setWeight] = useState("");
-    const [date, setDate] = useState("");
+    const [birthDate, setBirthDate] = useState("");
 
     const handlePetNameChange = (text) => {
         setPetName(text);
@@ -22,8 +27,8 @@ const AddAPetComponent = ({ onPetNameChange }) => {
         setWeight(text);
     };
 
-    const handleDateChange = (text) => {
-        setDate(text);
+    const handleBirthDateChange = (text) => {
+        setBirthDate(text);
     };
     const handleRemoveVaccine = (index) => {
         const updatedVaccines = [...vaccines];
@@ -37,8 +42,28 @@ const AddAPetComponent = ({ onPetNameChange }) => {
         ]);
     };
     const handleAddPet = () => {
-        console.log(PetName);
+        const petData = {
+            vaccines,
+            petName: PetName,
+            breed,
+            weight,
+            birthDate,
+        };
+
+        console.log("Adding pet to Firestore:", petData);
+
+        addDoc(collection(db, "pets"), petData)
+            .then(() => {
+                console.log("Pet added successfully!");
+                navigation.navigate("HomeWithPetsPage", {
+                    firstName: firstName,
+                });
+            })
+            .catch((error) => {
+                console.error("Error adding pet to Firestore:", error);
+            });
     };
+
     return (
         <View style={styles.container}>
             <Text style={styles.label}>Pet Name *</Text>
@@ -80,9 +105,9 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                         { marginRight: 10 },
                     ]}
                     placeholder="Select date            &#128197;"
-                    value={date}
-                    onChangeText={handleDateChange}
-                    type="date"
+                    value={birthDate}
+                    onChangeText={handleBirthDateChange}
+                    type="birthDate"
                 />
                 <TextInput
                     style={[

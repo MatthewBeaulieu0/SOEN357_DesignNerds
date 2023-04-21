@@ -40,7 +40,7 @@ export default function AddPetForm({ route, navigation }) {
             </View>
 
             <View style={styles.addPetComponent}>
-                <AddApetComponent />
+                <AddApetComponent firstName={firstName} />
             </View>
         </ScrollView>
     );
