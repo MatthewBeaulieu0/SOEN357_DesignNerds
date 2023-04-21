@@ -19,7 +19,7 @@ while on the Android Studio installation wizard,
 If you are having trouble setting up the environment, you can find more information here: https://reactnative.dev/docs/environment-setup?guide=native&os=windows
 
 ## Team members
-| Name                     |  
+| Names                    |  
 | :----------------------- |
 Diana Alexandra Merlusca|	
 Matthew Beaulieu|	
