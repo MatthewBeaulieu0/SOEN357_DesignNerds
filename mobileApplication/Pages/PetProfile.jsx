@@ -90,14 +90,17 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     petName: {
+        fontFamily: "Montserrat-Regular",
         fontSize: 32,
         marginLeft: 10,
     },
     heading: {
+        fontFamily: "Montserrat-Regular",
         fontSize: 20,
         marginLeft: 10,
     },
     mainText: {
+        fontFamily: "Montserrat-Regular",
         marginLeft: 10,
     },
     // mainTextDate:{
