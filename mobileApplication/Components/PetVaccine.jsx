@@ -10,10 +10,10 @@ import ForumTopics from "../Pages/Forums/ForumTopics";
 export default function PetVaccine(props, { navigation }) {
     return(
         <View style = {styles.vaccineContainer}>
-            <Text>
+            <Text style={styles.text}>
                 {props.vaccineName}
             </Text>
-            <Text>
+            <Text style={styles.text}>
             {props.vaccineDate}
             </Text>
         </View>
@@ -21,6 +21,9 @@ export default function PetVaccine(props, { navigation }) {
 }
 
 const styles = StyleSheet.create({
+    text: {
+        fontFamily: "Montserrat-Regular"
+    },
     vaccineContainer:{
         flex: 1,
         justifyContent: 'space-between',
