@@ -10,7 +10,7 @@ while on the Android Studio installation wizard,
 3. Add ANDROID_HOME environmnent variable (..../android/sdk)
 4. Add platform-tools to path  (..../android/sdk/platform-tools)
 5. Start an emulator via android studio's virtual device manager
-6. Ensure you are in the correct directory `mobile-application`
+6. Ensure you are in the correct directory: `mobileApplication`
    - once you are in the correct directory, you have to install the required dependencies:
      - `npm i`
 7. Run the application via `npm start`
