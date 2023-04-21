@@ -12,6 +12,7 @@ import Header from "../Components/header";
 import { useState, useEffect } from "react";
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import { ScrollView } from "react-native-gesture-handler";
 function PetCard({ name, age, breed, imageSource, onPress }) {
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -93,24 +94,26 @@ function HomeWithPetsPage({ navigation, route }) {
     return (
         <SafeAreaView style={styles.pageContainer}>
             <Header firstName={firstName} />
-            <Text style={styles.title}>My Pets</Text>
-            {pets.map((pet, index) => (
-                <PetCard
-                    key={index}
-                    name={pet.petName}
-                    age={calculateAge(pet.birthDate)}
-                    breed={pet.breed}
-                    imageSource={imageSources[index % imageSources.length]}
-                    onPress={() =>
-                        handlePetComponentClick(
-                            pet.petName,
-                            pet.birthDate,
-                            pet.breed,
-                            pet.vaccines
-                        )
-                    }
-                />
-            ))}
+            <ScrollView>
+                <Text style={styles.title}>My Pets</Text>
+                {pets.map((pet, index) => (
+                    <PetCard
+                        key={index}
+                        name={pet.petName}
+                        age={calculateAge(pet.birthDate)}
+                        breed={pet.breed}
+                        imageSource={imageSources[index % imageSources.length]}
+                        onPress={() =>
+                            handlePetComponentClick(
+                                pet.petName,
+                                pet.birthDate,
+                                pet.breed,
+                                pet.vaccines
+                            )
+                        }
+                    />
+                ))}
+            </ScrollView>
         </SafeAreaView>
     );
 }

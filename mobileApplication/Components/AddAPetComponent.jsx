@@ -55,7 +55,7 @@ const AddAPetComponent = ({ firstName }) => {
         addDoc(collection(db, "pets"), petData)
             .then(() => {
                 console.log("Pet added successfully!");
-                navigation.navigate("HomeWithPetsPage", {
+                navigation.navigate("HomePage", {
                     firstName: firstName,
                 });
             })

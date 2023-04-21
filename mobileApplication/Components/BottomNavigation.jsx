@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ConversationsPage from "../Pages/Conversations/ConversationsPage";
 import AddPetForm from "../Pages/AddPetForm";
 import HomePage from "../Pages/HomePage";
+import HomeWithPetsPage from "../Pages/HomeWithPetsPage";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { green } from "@mui/material/colors";
@@ -125,7 +126,7 @@ export default function BottomNavigation({ route, navigation }) {
 
             <Tab.Screen
                 name="profile"
-                component={ForumTopics}
+                component={HomeWithPetsPage}
                 initialParams={{ firstName: firstName }}
                 options={{
                     tabBarIcon: ({ focused }) => (
