@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TextInput, StyleSheet } from "react-native";
-
+import { TouchableOpacity } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 const AddAPetComponent = ({ onPetNameChange }) => {
     const [vaccines, setVaccines] = useState([{ name: "", date: "" }]);
     const [PetName, setPetName] = useState("");
@@ -34,6 +35,9 @@ const AddAPetComponent = ({ onPetNameChange }) => {
             ...prevVaccines,
             { name: "", date: "" },
         ]);
+    };
+    const handleAddPet = () => {
+        console.log(PetName);
     };
     return (
         <View style={styles.container}>
@@ -150,6 +154,12 @@ const AddAPetComponent = ({ onPetNameChange }) => {
                 </View>
                 <Text style={styles.addVaccine}>Add a vaccine</Text>
             </View>
+            <TouchableOpacity
+                onPress={handleAddPet}
+                style={[styles.addBtn, styles.addBtnView]}
+            >
+                <Ionicons name="add" size={50} color="white" style={{}} />
+            </TouchableOpacity>
         </View>
     );
 };
@@ -160,6 +170,20 @@ const styles = StyleSheet.create({
         padding: 20,
         borderRadius: 10,
         width: "85%",
+    },
+    addBtn: {
+        top: -20,
+        justifyContent: "center",
+        alignItems: "center",
+        shadowColor: "#75f5df0",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.5,
+        elevation: 5,
+        alignSelf: "center",
     },
     vaxTitle: {
         fontWeight: "gothic-a1-regular",
@@ -245,6 +269,14 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: "#E47D7D",
         textAlignVertical: "center",
+    },
+    addBtnView: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: "turquoise",
+        justifyContent: "center",
+        alignItems: "center",
     },
 });
 
