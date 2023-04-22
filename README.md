@@ -20,6 +20,15 @@ while on the Android Studio installation wizard,
 
 If you are having trouble setting up the environment, you can find more information here: https://reactnative.dev/docs/environment-setup?guide=native&os=windows
 
+
+Method 2: via expo publish: (might fail)
+
+1) download the ExPo go from google play or app store
+2) scan the following QR code
+![image](https://user-images.githubusercontent.com/68243088/233761015-d3b1721c-677e-47c5-b7c3-d373aadbd0a3.png)
+or paste the following link: exp://exp.host/@bogdanpoda/mobileApplication?release-channel=default
+3) Enjoy!
+
 ## Team members
 | Name                     | Student Id |
 | :----------------------- | :----------|
