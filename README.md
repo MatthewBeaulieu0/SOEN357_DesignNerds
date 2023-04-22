@@ -1,5 +1,7 @@
 # SOEN357_DesignNerds
 
+Project Demo: https://www.youtube.com/watch?v=WbxpHDKtxJo&ab_channel=BogdanPodariu
+
 ## To run the app, follow the steps below:
 1. Install Android Studio
 while on the Android Studio installation wizard, 
