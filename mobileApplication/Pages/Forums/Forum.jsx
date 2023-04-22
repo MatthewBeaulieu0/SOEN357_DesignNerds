@@ -99,10 +99,12 @@ function Forum({ navigation }) {
           console.log(error);
         });
     }
+    setInputText("")
   };
 
   const handleAskSwitch = () => {
     //  TODO: add post logic later
+    setSelectedQuestion("")
     setOpenCommentInput(false);
   };
 
@@ -175,7 +177,8 @@ function Forum({ navigation }) {
       <Text style={styles.title}>Covid-19</Text>
       <ScrollView>
         {questions.map((question) => (
-          <View style={styles.discussionContainer}>
+          <View style={[styles.discussionContainer, {borderWidth:selectedQuestion==question.docId?5:0,
+            borderColor: "thistle",}]}>
             <HStack spacing={10} style={styles.usernameHeader}>
               <Avatar
                 rounded
