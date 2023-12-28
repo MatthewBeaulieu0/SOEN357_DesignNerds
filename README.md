@@ -1,4 +1,4 @@
-# SOEN357_DesignNerds
+# SOEN357: User Interface Design
 
 Project Demo: https://www.youtube.com/watch?v=WbxpHDKtxJo&ab_channel=BogdanPodariu
 
